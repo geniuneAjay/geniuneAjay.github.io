@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ajaya Kumar Behura — Full Stack Developer</title>
+<meta name="description" content="Portfolio of Ajaya Kumar Behura — Senior Full Stack Developer building SFA, Loyalty, HRMS and AI-powered business systems with React, React Native, Angular, Ionic, Node.js and PHP.">
+<meta property="og:title" content="Ajaya Kumar Behura — Portfolio">
+<meta property="og:description" content="Ideas | Code | Solutions — SFA, Loyalty, HRMS and AI-powered business apps.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%230b0b0b'/><text x='50%25' y='56%25' text-anchor='middle' dominant-baseline='middle' font-family='Arial' font-weight='800' font-size='30' fill='%23FFC107'>AB</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0a0a; --bg2:#111111; --card:#151515; --line:#262626;
+  --text:#f2f2f2; --muted:#a3a3a3; --dim:#6b6b6b;
+  --y:#FFC107; --y2:#FFD54F; --yglow:rgba(255,193,7,.18);
+  --radius:16px; --max:1140px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
+.mono{font-family:"JetBrains Mono",monospace}
+h1,h2,h3{font-family:"Space Grotesk",sans-serif;line-height:1.15}
+.y{color:var(--y)}
+
+/* nav */
+nav{position:fixed;inset:0 0 auto 0;z-index:50;background:rgba(10,10,10,.75);backdrop-filter:blur(12px);border-bottom:1px solid transparent;transition:border-color .3s}
+nav.scrolled{border-color:var(--line)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-family:"Space Grotesk";font-weight:700;font-size:20px;letter-spacing:.5px}
+.logo span{color:var(--y)}
+.links{display:flex;gap:28px;font-size:14px;color:var(--muted)}
+.links a:hover{color:var(--y)}
+.menu-btn{display:none;background:none;border:1px solid var(--line);color:var(--text);border-radius:10px;padding:6px 10px;font-size:18px;cursor:pointer}
+
+/* hero */
+.hero{min-height:100vh;display:flex;align-items:center;padding:110px 0 60px;position:relative}
+.hero::before{content:"";position:absolute;inset:0;background:
+  radial-gradient(600px 400px at 80% 30%,var(--yglow),transparent 70%),
+  linear-gradient(var(--line) 1px,transparent 1px) 0 0/48px 48px,
+  linear-gradient(90deg,var(--line) 1px,transparent 1px) 0 0/48px 48px;
+  opacity:.35;mask-image:radial-gradient(ellipse at center,#000 30%,transparent 75%);pointer-events:none}
+.hero-grid{display:grid;grid-template-columns:1.25fr .9fr;gap:48px;align-items:center;position:relative}
+.tag{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--bg2);padding:6px 14px;border-radius:999px;font-size:13px;color:var(--muted)}
+.dot{width:8px;height:8px;border-radius:50%;background:#22c55e;box-shadow:0 0 10px #22c55e}
+.hero h1{font-size:clamp(38px,6vw,68px);margin:18px 0 10px}
+.hero .role{font-size:clamp(18px,2.4vw,24px);color:var(--muted);min-height:1.6em}
+.caret{display:inline-block;width:2px;height:1em;background:var(--y);vertical-align:-3px;margin-left:3px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.motto{margin-top:18px;font-size:15px;letter-spacing:3px;color:var(--y)}
+.hero p.lead{margin-top:18px;color:var(--muted);max-width:560px}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:12px;font-weight:600;font-size:15px;transition:transform .2s,box-shadow .2s,background .2s}
+.btn-y{background:var(--y);color:#111}
+.btn-y:hover{transform:translateY(-2px);box-shadow:0 10px 30px var(--yglow)}
+.btn-o{border:1px solid var(--line);color:var(--text)}
+.btn-o:hover{border-color:var(--y);color:var(--y)}
+.photo-box{position:relative;justify-self:center;width:min(360px,80vw);aspect-ratio:1}
+.photo-box::before{content:"";position:absolute;inset:-14px;border-radius:32px;border:2px dashed rgba(255,193,7,.35);animation:spin 40s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.photo{position:relative;width:100%;height:100%;border-radius:28px;overflow:hidden;background:linear-gradient(145deg,#1a1a1a,#0d0d0d);border:1px solid var(--line);display:grid;place-items:center}
+.photo img{width:100%;height:100%;object-fit:cover}
+.initials{font-family:"Space Grotesk";font-size:110px;font-weight:700;color:var(--y);text-shadow:0 0 40px var(--yglow)}
+.badge{position:absolute;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px 14px;font-size:13px;box-shadow:0 10px 30px rgba(0,0,0,.5)}
+.badge b{color:var(--y);font-family:"Space Grotesk";font-size:20px;display:block}
+.b1{left:-30px;bottom:40px}.b2{right:-24px;top:30px}
+
+/* sections */
+section{padding:90px 0}
+.sec-head{margin-bottom:44px}
+.sec-head .mono{color:var(--y);font-size:13px;letter-spacing:2px}
+.sec-head h2{font-size:clamp(28px,4vw,42px);margin-top:8px}
+.sec-head p{color:var(--muted);margin-top:10px;max-width:640px}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px}
+.stat b{font-family:"Space Grotesk";font-size:34px;color:var(--y)}
+.stat span{display:block;color:var(--muted);font-size:14px}
+
+/* about */
+.about-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:40px}
+.about-grid p{color:var(--muted);margin-bottom:14px}
+.about-grid p strong{color:var(--text)}
+.hl{list-style:none;display:grid;gap:12px}
+.hl li{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--y);border-radius:12px;padding:14px 16px;font-size:15px}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.skill{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px;transition:border-color .25s,transform .25s}
+.skill:hover{border-color:rgba(255,193,7,.5);transform:translateY(-4px)}
+.skill .ic{width:42px;height:42px;border-radius:12px;background:var(--yglow);display:grid;place-items:center;color:var(--y);font-size:20px;margin-bottom:14px}
+.skill h3{font-size:18px;margin-bottom:12px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-size:12.5px;padding:5px 11px;border-radius:999px;background:#1d1d1d;border:1px solid var(--line);color:#d4d4d4}
+
+/* projects */
+.filters{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:28px}
+.filters button{background:var(--bg2);border:1px solid var(--line);color:var(--muted);padding:8px 16px;border-radius:999px;font-size:14px;cursor:pointer;font-family:inherit}
+.filters button.on,.filters button:hover{border-color:var(--y);color:var(--y)}
+.projects{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.proj{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px;display:flex;flex-direction:column;transition:border-color .25s,transform .25s;position:relative;overflow:hidden}
+.proj::after{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--y),transparent);opacity:0;transition:opacity .25s}
+.proj:hover{border-color:rgba(255,193,7,.45);transform:translateY(-4px)}
+.proj:hover::after{opacity:1}
+.proj .top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:10px}
+.proj h3{font-size:20px}
+.proj .cat{font-size:11px;letter-spacing:1.5px;color:var(--y);white-space:nowrap}
+.proj p{color:var(--muted);font-size:15px;margin-bottom:14px}
+.proj ul{color:var(--muted);font-size:14px;margin:0 0 16px 18px}
+.proj ul li{margin-bottom:4px}
+.proj .chips{margin-top:auto}
+.proj .acts{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.proj .acts a{font-size:13px;padding:7px 14px;border-radius:10px;border:1px solid var(--line)}
+.proj .acts a.v{background:var(--y);color:#111;border-color:var(--y);font-weight:600}
+.proj .acts a:hover{border-color:var(--y)}
+.proj.hide{display:none}
+.feat{grid-column:1/-1;background:linear-gradient(135deg,#1a1605,#141414 55%)}
+
+/* timeline */
+.tl{position:relative;padding-left:30px;border-left:2px solid var(--line)}
+.tli{position:relative;margin-bottom:40px}
+.tli::before{content:"";position:absolute;left:-39px;top:6px;width:16px;height:16px;border-radius:50%;background:var(--bg);border:3px solid var(--y)}
+.tli .when{font-size:13px;color:var(--y)}
+.tli h3{font-size:22px;margin:4px 0 2px}
+.tli .co{color:var(--muted);margin-bottom:12px}
+.tli ul{color:var(--muted);margin-left:18px}
+.tli ul li{margin-bottom:6px}
+
+/* contact */
+.contact{background:linear-gradient(135deg,#171204,#0f0f0f);border:1px solid var(--line);border-radius:24px;padding:50px;text-align:center}
+.contact h2{font-size:clamp(28px,4vw,44px)}
+.contact p{color:var(--muted);margin:12px auto 28px;max-width:560px}
+.contact .cta{justify-content:center}
+footer{padding:30px 0;border-top:1px solid var(--line);color:var(--dim);font-size:14px;margin-top:60px}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}
+.reveal.in{opacity:1;transform:none}
+
+@media (max-width:900px){
+  .hero-grid,.about-grid{grid-template-columns:1fr}
+  .photo-box{order:-1;width:min(260px,70vw)}
+  .skills{grid-template-columns:1fr 1fr}
+  .projects{grid-template-columns:1fr}
+  .stats{grid-template-columns:1fr 1fr}
+  .b1{left:-10px}.b2{right:-10px}
+}
+@media (max-width:640px){
+  .links{display:none;position:absolute;top:64px;left:0;right:0;flex-direction:column;background:var(--bg);border-bottom:1px solid var(--line);padding:18px 20px;gap:16px}
+  .links.open{display:flex}
+  .menu-btn{display:block}
+  .skills{grid-template-columns:1fr}
+  section{padding:70px 0}
+  .contact{padding:34px 20px}
+  .initials{font-size:80px}
+  .badge{padding:6px 10px;font-size:11px}.badge b{font-size:15px}
+  .b1{left:-14px;bottom:-10px}.b2{right:-14px;top:-10px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="wrap nav-in">
+    <a href="#top" class="logo">Ajay<span>.</span>dev</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
+    <div class="links" id="links">
+      <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="tag"><i class="dot"></i> Open to new opportunities</span>
+      <h1>Hi, I'm <span class="y">Ajaya Kumar Behura</span></h1>
+      <div class="role mono"><span id="typed"></span><span class="caret"></span></div>
+      <div class="motto mono">IDEAS &nbsp;|&nbsp; CODE &nbsp;|&nbsp; SOLUTIONS</div>
+      <p class="lead">I design and build end-to-end business software — Sales Force Automation, Loyalty, Dealer Management, HRMS — from database architecture to production web and mobile apps, now with AI built in.</p>
+      <div class="cta">
+        <a class="btn btn-y" href="#projects">View my work →</a>
+        <a class="btn btn-o" href="mailto:ajayakumarbehura12@gmail.com">Hire me</a>
+        <a class="btn btn-o" href="https://github.com/geniuneAjay" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+    <div class="photo-box">
+      <div class="photo">
+        <!-- Replace photo.jpg in the repo with your own picture -->
+        <img src="photo.jpg" alt="Ajaya Kumar Behura" onerror="this.remove();document.getElementById('ini').style.display='block'">
+        <span class="initials" id="ini" style="display:none">AB</span>
+      </div>
+      <div class="badge b1"><b>10+</b>Apps shipped</div>
+      <div class="badge b2"><b>AI</b>in production</div>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="mono">01 / ABOUT</span><h2>Builder of business-critical systems</h2></div>
+    <div class="about-grid">
+      <div class="reveal">
+        <p>I'm a <strong>Senior Full Stack Developer</strong> based in Faridabad, Haryana, currently leading technology and sales operations at <strong>Savitri Woods India Pvt. Ltd. (Wigwam Ply)</strong> — a plywood and block board manufacturer operating across multiple Indian states.</p>
+        <p>I independently built the company's entire in-house software suite — <strong>SFA, Loyalty, Store Management, Guard Management and HRMS</strong>. I own the full lifecycle: gathering requirements, designing the database, writing the back-end and front-end, shipping mobile apps to the Play Store and App Store, and running them on production servers.</p>
+        <p>Lately I've been bringing <strong>AI into everyday field operations</strong> — natural-language reporting, voice commands and chatbots that help sales teams and dealers get answers instantly.</p>
+      </div>
+      <ul class="hl reveal">
+        <li>🧭 Requirements → DB design → APIs → Web &amp; Mobile → Deployment</li>
+        <li>📱 Native Kotlin &amp; Swift background location plugin for Ionic and React Native</li>
+        <li>🤖 GPT-powered natural-language-to-SQL reporting and voice check-ins</li>
+        <li>🏢 Multi-tenant 360° platform: SFA, Loyalty, Dealer &amp; Service</li>
+        <li>🚀 End-to-end App Store / Play Store releases and server deployments</li>
+      </ul>
+    </div>
+    <div class="stats reveal">
+      <div class="stat"><b>3+</b><span>Years building SFA &amp; loyalty</span></div>
+      <div class="stat"><b>10+</b><span>Products delivered</span></div>
+      <div class="stat"><b>5</b><span>In-house systems built solo</span></div>
+      <div class="stat"><b>2</b><span>App stores — iOS &amp; Android</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="mono">02 / SKILLS</span><h2>Tech stack</h2><p>The tools I use to take an idea from a whiteboard to a live product.</p></div>
+    <div class="skills">
+      <div class="skill reveal"><div class="ic">⌘</div><h3>Frontend</h3><div class="chips"><span class="chip">React.js</span><span class="chip">Next.js</span><span class="chip">Angular</span><span class="chip">TypeScript</span><span class="chip">JavaScript</span><span class="chip">HTML5 / CSS3</span></div></div>
+      <div class="skill reveal"><div class="ic">📱</div><h3>Mobile</h3><div class="chips"><span class="chip">React Native</span><span class="chip">Ionic</span><span class="chip">Kotlin (plugins)</span><span class="chip">Swift (plugins)</span><span class="chip">Xcode</span><span class="chip">Play Store / App Store</span></div></div>
+      <div class="skill reveal"><div class="ic">⚙</div><h3>Backend</h3><div class="chips"><span class="chip">PHP</span><span class="chip">Node.js</span><span class="chip">REST APIs</span><span class="chip">Multi-tenant architecture</span><span class="chip">System design</span></div></div>
+      <div class="skill reveal"><div class="ic">🗄</div><h3>Database</h3><div class="chips"><span class="chip">MySQL</span><span class="chip">SQL</span><span class="chip">PostgreSQL (basic)</span><span class="chip">Schema design</span></div></div>
+      <div class="skill reveal"><div class="ic">✦</div><h3>AI Integration</h3><div class="chips"><span class="chip">OpenAI GPT</span><span class="chip">NL → SQL</span><span class="chip">LLM chatbots</span><span class="chip">Voice commands</span><span class="chip">Claude Code</span></div></div>
+      <div class="skill reveal"><div class="ic">☁</div><h3>DevOps &amp; Web</h3><div class="chips"><span class="chip">Oracle Cloud</span><span class="chip">Hostinger</span><span class="chip">Domains &amp; SSL</span><span class="chip">WordPress</span><span class="chip">SEO</span><span class="chip">Git / GitHub</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="mono">03 / PROJECTS</span><h2>Selected work</h2><p>Production systems used daily by field sales teams, dealers, contractors and staff.</p></div>
+    <div class="filters reveal" id="filters">
+      <button class="on" data-f="all">All</button>
+      <button data-f="sfa">SFA &amp; Sales</button>
+      <button data-f="loyalty">Loyalty</button>
+      <button data-f="ai">AI</button>
+      <button data-f="ops">Operations &amp; HR</button>
+      <button data-f="mobile">Mobile / Native</button>
+    </div>
+    <div class="projects" id="projGrid">
+
+      <article class="proj feat reveal" data-c="sfa ai mobile">
+        <div class="top"><h3>Wigwam SFA — AI-powered Sales Force Automation</h3><span class="cat mono">FLAGSHIP</span></div>
+        <p>Complete field sales platform for Wigwam Ply's sales team across multiple states — attendance, beat plans, party check-ins, orders, targets and live GPS tracking, with an admin web panel for monthly reviews.</p>
+        <ul>
+          <li>Ask questions in plain English — GPT converts them into SQL and returns live reports</li>
+          <li>Voice-command party check-in for field users</li>
+          <li>Background GPS tracking via a custom native plugin; outstation &amp; field-working analysis</li>
+          <li>Target tracking and MRM (monthly review meeting) dashboards</li>
+        </ul>
+        <div class="chips"><span class="chip">Angular</span><span class="chip">Ionic</span><span class="chip">PHP</span><span class="chip">MySQL</span><span class="chip">OpenAI</span><span class="chip">Kotlin / Swift</span></div>
+        <div class="acts" data-video=""></div>
+      </article>
+
+      <article class="proj reveal" data-c="sfa loyalty">
+        <div class="top"><h3>360° Multi-tenant Business Platform</h3><span class="cat mono">SAAS</span></div>
+        <p>One platform that onboards multiple companies, each with SFA, Loyalty, Dealer Management and Service modules — configurable per tenant.</p>
+        <div class="chips"><span class="chip">Next.js</span><span class="chip">React</span><span class="chip">React Native</span><span class="chip">Node.js</span></div>
+        <div class="acts" data-video=""></div>
+      </article>
+
+      <article class="proj reveal" data-c="sfa">
+        <div class="top"><h3>Magnus — SFA Demo Product</h3><span class="cat mono">PRODUCT</span></div>
+        <p>A full SFA product demo — web panel, backend and mobile app — built to showcase field sales automation to new clients.</p>
+        <div class="chips"><span class="chip">React</span><span class="chip">React Native</span><span class="chip">Node.js</span></div>
+        <div class="acts" data-video="" data-live=""></div>
+      </article>
+
+      <article class="proj reveal" data-c="loyalty">
+        <div class="top"><h3>Wigwam Loyalty Program</h3><span class="cat mono">LOYALTY</span></div>
+        <p>Reward platform for dealers, carpenters and contractors — QR/coupon scanning, points, redemption, schemes and an admin panel to manage campaigns.</p>
+        <div class="chips"><span class="chip">Ionic</span><span class="chip">Angular</span><span class="chip">PHP</span><span class="chip">MySQL</span></div>
+        <div class="acts" data-video=""></div>
+      </article>
+
+      <article class="proj reveal" data-c="loyalty">
+        <div class="top"><h3>Advance Ply — Loyalty &amp; Scheme Management</h3><span class="cat mono">CLIENT</span></div>
+        <p>Loyalty and scheme management app for Advance Laminates / Advance Ply, covering influencer registration, scheme rules, points and redemptions.</p>
+        <div class="chips"><span class="chip">Mobile App</span><span class="chip">Admin Panel</span><span class="chip">PHP</span></div>
+        <div class="acts" data-video=""></div>
+      </article>
+
+      <article class="proj reveal" data-c="ai">
+        <div class="top"><h3>Dealer Query LLM Chatbot</h3><span class="cat mono">AI</span></div>
+        <p>LLM-based assistant that answers dealer queries — orders, schemes, points and product info — from live company data, reducing load on the sales support team.</p>
+        <div class="chips"><span class="chip">LLM</span><span class="chip">OpenAI</span><span class="chip">PHP / Node.js</span></div>
+        <div class="acts" data-video=""></div>
+      </article>
+
+      <article class="proj reveal" data-c="mobile">
+        <div class="top"><h3>Native Background Location Plugin</h3><span class="cat mono">NATIVE</span></div>
+        <p>Custom background location tracking plugin written in Kotlin (Android) and Swift (iOS), packaged for both Ionic and React Native — reliable tracking even when the app is closed.</p>
+        <div class="chips"><span class="chip">Kotlin</span><span class="chip">Swift</span><span class="chip">Ionic</span><span class="chip">React Native</span></div>
+        <div class="acts" data-video=""></div>
+      </article>
+
+      <article class="proj reveal" data-c="ops">
+        <div class="top"><h3>HRMS</h3><span class="cat mono">HR</span></div>
+        <p>Human resource management system — employee master, attendance, leave and payroll data processing with formatted reports.</p>
+        <div class="chips"><span class="chip">Angular</span><span class="chip">PHP</span><span class="chip">MySQL</span></div>
+        <div class="acts" data-video=""></div>
+      </article>
+
+      <article class="proj reveal" data-c="ops">
+        <div class="top"><h3>Store Management System</h3><span class="cat mono">OPS</span></div>
+        <p>Inventory and store operations — stock in/out, material issue and tracking for the factory store.</p>
+        <div class="chips"><span class="chip">Angular</span><span class="chip">PHP</span><span class="chip">MySQL</span></div>
+        <div class="acts" data-video=""></div>
+      </article>
+
+      <article class="proj reveal" data-c="ops mobile">
+        <div class="top"><h3>Guard Management System</h3><span class="cat mono">OPS</span></div>
+        <p>Security operations app — gate entry/exit logging, visitor and vehicle records, and guard duty monitoring.</p>
+        <div class="chips"><span class="chip">Ionic</span><span class="chip">PHP</span><span class="chip">MySQL</span></div>
+        <div class="acts" data-video=""></div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="mono">04 / EXPERIENCE</span><h2>Where I've worked</h2></div>
+    <div class="tl">
+      <div class="tli reveal">
+        <span class="when mono">APR 2026 — PRESENT</span>
+        <h3>Senior Full Stack Developer – Leading Team &amp; Sales Operations</h3>
+        <div class="co">Savitri Woods India Pvt. Ltd. (Wigwam Ply) · Hoshiarpur / Faridabad</div>
+        <ul>
+          <li>Built and run all in-house software: SFA, Loyalty, Store Management, Guard Management and HRMS</li>
+          <li>Integrated AI into SFA — GPT natural-language-to-SQL reporting and voice-command check-ins</li>
+          <li>Lead sales operations: MRM reviews, target tracking and field-working analysis</li>
+          <li>Oversee HR data operations and marketing / SEO content review</li>
+        </ul>
+      </div>
+      <div class="tli reveal">
+        <span class="when mono">SEP 2023 — MAR 2026</span>
+        <h3>Full Stack Developer</h3>
+        <div class="co">AbacusDesk IT Solutions</div>
+        <ul>
+          <li>Built SFA, loyalty and dealer management solutions for plywood &amp; building-materials brands</li>
+          <li>Developed a multi-tenant 360° product on Next.js, React, React Native and Node.js</li>
+          <li>Created a native Kotlin/Swift background location plugin; managed iOS &amp; Android releases</li>
+          <li>Deployed and maintained production apps on Oracle and Hostinger servers</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="contact reveal">
+      <span class="mono y" style="font-size:13px;letter-spacing:2px">05 / CONTACT</span>
+      <h2 style="margin-top:10px">Have an idea? Let's build it.</h2>
+      <p>Looking for someone to build your SFA, loyalty program or custom business app — or a developer who can own a product end to end? I'd love to hear from you.</p>
+      <div class="cta">
+        <a class="btn btn-y" href="mailto:ajayakumarbehura12@gmail.com">✉ ajayakumarbehura12@gmail.com</a>
+        <a class="btn btn-o" href="https://github.com/geniuneAjay" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap"><span>© <span id="yr"></span> Ajaya Kumar Behura</span><span class="mono">Ideas | Code | Solutions</span></div>
+</footer>
+
+<script>
+/* ===== Add your Google Drive video links here =====
+   Key = project title (exact), value = share link. Leave "" to hide the button. */
+const VIDEOS = {
+  "Wigwam SFA — AI-powered Sales Force Automation": "",
+  "360° Multi-tenant Business Platform": "",
+  "Magnus — SFA Demo Product": "",
+  "Wigwam Loyalty Program": "",
+  "Advance Ply — Loyalty & Scheme Management": "",
+  "Dealer Query LLM Chatbot": "",
+  "Native Background Location Plugin": "",
+  "HRMS": "",
+  "Store Management System": "",
+  "Guard Management System": ""
+};
+const LIVE = { "Magnus — SFA Demo Product": "" };
+
+document.querySelectorAll('.proj').forEach(p=>{
+  const t=p.querySelector('h3').textContent.trim(), a=p.querySelector('.acts');
+  if(VIDEOS[t]) a.insertAdjacentHTML('beforeend',`<a class="v" href="${VIDEOS[t]}" target="_blank" rel="noopener">▶ Watch demo</a>`);
+  if(LIVE[t]) a.insertAdjacentHTML('beforeend',`<a href="${LIVE[t]}" target="_blank" rel="noopener">Live demo ↗</a>`);
+  if(!a.children.length) a.remove();
+});
+
+// typing effect
+const roles=["Senior Full Stack Developer","React · React Native · Node.js · PHP","SFA & Loyalty Systems Specialist","AI Integration Enthusiast"];
+let ri=0,ci=0,del=false;const el=document.getElementById('typed');
+(function type(){const w=roles[ri];el.textContent=w.slice(0,ci);
+  if(!del&&ci<w.length){ci++;setTimeout(type,70)}
+  else if(!del){del=true;setTimeout(type,1600)}
+  else if(ci>0){ci--;setTimeout(type,35)}
+  else{del=false;ri=(ri+1)%roles.length;setTimeout(type,300)}})();
+
+// filters
+document.getElementById('filters').addEventListener('click',e=>{
+  const b=e.target.closest('button');if(!b)return;
+  document.querySelectorAll('#filters button').forEach(x=>x.classList.toggle('on',x===b));
+  const f=b.dataset.f;
+  document.querySelectorAll('.proj').forEach(p=>p.classList.toggle('hide',f!=='all'&&!p.dataset.c.split(' ').includes(f)));
+});
+
+// reveal on scroll
+const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(r=>io.observe(r));
+
+// nav
+const nav=document.getElementById('nav');addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>20));
+const links=document.getElementById('links');document.getElementById('menuBtn').onclick=()=>links.classList.toggle('open');
+links.querySelectorAll('a').forEach(a=>a.onclick=()=>links.classList.remove('open'));
+document.getElementById('yr').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
