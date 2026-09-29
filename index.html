@@ -59,8 +59,9 @@ nav .wrap{height:72px;display:flex;align-items:center;justify-content:space-betw
 .stat{padding:24px;display:flex;flex-direction:column;gap:6px;border-radius:18px}
 .stat b{font-family:Sora,sans-serif;font-size:40px;font-weight:800;color:var(--a1);line-height:1.1}
 .stat span{font-size:14px;color:var(--muted)}
+.stat b{font-variant-numeric:tabular-nums}
 
-section{padding-bottom:112px}
+section.wrap{padding-bottom:112px}
 .head{display:flex;flex-direction:column;gap:6px;margin-bottom:28px}
 .head p{max-width:680px;color:var(--muted);font-size:17px}
 .media{background:var(--media);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;position:relative}
@@ -154,7 +155,7 @@ footer .wrap{padding-top:28px;padding-bottom:28px;display:flex;justify-content:s
   .stats{grid-template-columns:repeat(2,minmax(0,1fr));padding-bottom:56px}
   .stat:last-child{grid-column:span 2}
   .stat b{font-size:30px}
-  section{padding-bottom:64px}
+  section.wrap{padding-bottom:64px}
   .grid3{grid-template-columns:1fr}
   .grid4{grid-template-columns:1fr}
   .hire .btn{width:100%}
@@ -201,11 +202,11 @@ footer .wrap{padding-top:28px;padding-bottom:28px;display:flex;justify-content:s
 </header>
 
 <div class="wrap stats">
-  <div class="card stat"><b>3+</b><span>Years building production apps</span></div>
-  <div class="card stat"><b>7+</b><span>Business platforms shipped</span></div>
-  <div class="card stat"><b>4000+</b><span>Field &amp; office users</span></div>
-  <div class="card stat"><b>10K+</b><span>Loyalty QR scans handled</span></div>
-  <div class="card stat"><b>7+</b><span>Plywood &amp; laminate brands</span></div>
+  <div class="card stat"><b data-to="3" data-suf="+">3+</b><span>Years building production apps</span></div>
+  <div class="card stat"><b data-to="7" data-suf="+">7+</b><span>Business platforms shipped</span></div>
+  <div class="card stat"><b data-to="4000" data-suf="+">4000+</b><span>Field &amp; office users</span></div>
+  <div class="card stat"><b data-to="10" data-suf="K+">10K+</b><span>Loyalty QR scans handled</span></div>
+  <div class="card stat"><b data-to="7" data-suf="+">7+</b><span>Plywood &amp; laminate brands</span></div>
 </div>
 
 <section id="projects" class="wrap">
@@ -343,6 +344,26 @@ const lb = document.getElementById("linkedinBtn");
 if (LINKEDIN_LINK) lb.href = LINKEDIN_LINK; else lb.style.display = "none";
 document.getElementById("yr").textContent = new Date().getFullYear();
 document.querySelectorAll(".links a").forEach(function(a){ a.addEventListener("click", function(){ document.querySelector(".links").classList.remove("open"); }); });
+
+/* stats counter */
+(function(){
+  var els = document.querySelectorAll(".stat b[data-to]");
+  if (!("IntersectionObserver" in window) || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  function run(el){
+    var to = +el.dataset.to, suf = el.dataset.suf || "", t0 = null, dur = 1600;
+    function step(t){
+      if (!t0) t0 = t;
+      var p = Math.min((t - t0) / dur, 1), e = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(to * e) + suf;
+      if (p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if (e.isIntersecting) { run(e.target); io.unobserve(e.target); } });
+  }, {threshold: .6});
+  els.forEach(function(el){ io.observe(el); });
+})();
 </script>
 </body>
 </html>
