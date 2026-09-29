@@ -3,334 +3,294 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ajaya Kumar Behura — Full Stack Developer</title>
-<meta name="description" content="Portfolio of Ajaya Kumar Behura — Senior Full Stack Developer building SFA, Loyalty, HRMS and AI-powered business systems with React, React Native, Angular, Ionic, Node.js and PHP.">
-<meta property="og:title" content="Ajaya Kumar Behura — Portfolio">
-<meta property="og:description" content="Ideas | Code | Solutions — SFA, Loyalty, HRMS and AI-powered business apps.">
-<meta property="og:type" content="website">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%230b0b0b'/><text x='50%25' y='56%25' text-anchor='middle' dominant-baseline='middle' font-family='Arial' font-weight='800' font-size='30' fill='%23FFC107'>AB</text></svg>">
+<title>Ajaya Kumar Behura · Senior Full Stack Developer</title>
+<meta name="description" content="Senior Full Stack Developer — React, Next.js, Angular, Node.js, PHP, React Native, Kotlin & Swift, AI integration. 7+ business platforms used by 4000+ users.">
+<meta property="og:title" content="Ajaya Kumar Behura · Senior Full Stack Developer">
+<meta property="og:image" content="https://geniuneajay.github.io/og-banner.jpg">
+<meta property="og:description" content="7+ production platforms · 4000+ users · Native Kotlin/Swift · AI integration">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#0a0a0a; --bg2:#111111; --card:#151515; --line:#262626;
-  --text:#f2f2f2; --muted:#a3a3a3; --dim:#6b6b6b;
-  --y:#FFC107; --y2:#FFD54F; --yglow:rgba(255,193,7,.18);
-  --radius:16px; --max:1140px;
+  --bg:#0a0b10; --bg2:#10121a; --card:#141722; --card2:#1a1e2c; --line:#262b3d;
+  --text:#e8eaf2; --muted:#9aa1b8; --dim:#6b7290;
+  --accent:#7c5cff; --accent2:#22d3ee; --good:#34d399;
+  --grad:linear-gradient(135deg,#7c5cff 0%,#22d3ee 100%);
+  --radius:16px; --maxw:1120px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{color:inherit;text-decoration:none}
-img{max-width:100%;display:block}
-.wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
 .mono{font-family:"JetBrains Mono",monospace}
-h1,h2,h3{font-family:"Space Grotesk",sans-serif;line-height:1.15}
-.y{color:var(--y)}
+.grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* background glow */
+body::before{content:"";position:fixed;inset:-20% -10% auto -10%;height:70vh;background:radial-gradient(ellipse at 30% 20%,rgba(124,92,255,.18),transparent 60%),radial-gradient(ellipse at 80% 10%,rgba(34,211,238,.12),transparent 55%);pointer-events:none;z-index:-1}
 
 /* nav */
-nav{position:fixed;inset:0 0 auto 0;z-index:50;background:rgba(10,10,10,.75);backdrop-filter:blur(12px);border-bottom:1px solid transparent;transition:border-color .3s}
-nav.scrolled{border-color:var(--line)}
-.nav-in{display:flex;align-items:center;justify-content:space-between;height:64px}
-.logo{font-family:"Space Grotesk";font-weight:700;font-size:20px;letter-spacing:.5px}
-.logo span{color:var(--y)}
-.links{display:flex;gap:28px;font-size:14px;color:var(--muted)}
-.links a:hover{color:var(--y)}
+nav{position:sticky;top:0;z-index:50;background:rgba(10,11,16,.72);backdrop-filter:blur(14px);border-bottom:1px solid rgba(38,43,61,.6)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-weight:800;font-size:18px;letter-spacing:-.02em}
+.logo span{color:var(--accent2)}
+.links{display:flex;gap:26px;font-size:14px;color:var(--muted)}
+.links a:hover{color:var(--text)}
 .menu-btn{display:none;background:none;border:1px solid var(--line);color:var(--text);border-radius:10px;padding:6px 10px;font-size:18px;cursor:pointer}
 
 /* hero */
-.hero{min-height:100vh;display:flex;align-items:center;padding:110px 0 60px;position:relative}
-.hero::before{content:"";position:absolute;inset:0;background:
-  radial-gradient(600px 400px at 80% 30%,var(--yglow),transparent 70%),
-  linear-gradient(var(--line) 1px,transparent 1px) 0 0/48px 48px,
-  linear-gradient(90deg,var(--line) 1px,transparent 1px) 0 0/48px 48px;
-  opacity:.35;mask-image:radial-gradient(ellipse at center,#000 30%,transparent 75%);pointer-events:none}
-.hero-grid{display:grid;grid-template-columns:1.25fr .9fr;gap:48px;align-items:center;position:relative}
-.tag{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--bg2);padding:6px 14px;border-radius:999px;font-size:13px;color:var(--muted)}
-.dot{width:8px;height:8px;border-radius:50%;background:#22c55e;box-shadow:0 0 10px #22c55e}
-.hero h1{font-size:clamp(38px,6vw,68px);margin:18px 0 10px}
-.hero .role{font-size:clamp(18px,2.4vw,24px);color:var(--muted);min-height:1.6em}
-.caret{display:inline-block;width:2px;height:1em;background:var(--y);vertical-align:-3px;margin-left:3px;animation:blink 1s steps(1) infinite}
-@keyframes blink{50%{opacity:0}}
-.motto{margin-top:18px;font-size:15px;letter-spacing:3px;color:var(--y)}
-.hero p.lead{margin-top:18px;color:var(--muted);max-width:560px}
-.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:12px;font-weight:600;font-size:15px;transition:transform .2s,box-shadow .2s,background .2s}
-.btn-y{background:var(--y);color:#111}
-.btn-y:hover{transform:translateY(-2px);box-shadow:0 10px 30px var(--yglow)}
-.btn-o{border:1px solid var(--line);color:var(--text)}
-.btn-o:hover{border-color:var(--y);color:var(--y)}
-.photo-box{position:relative;justify-self:center;width:min(360px,80vw);aspect-ratio:1}
-.photo-box::before{content:"";position:absolute;inset:-14px;border-radius:32px;border:2px dashed rgba(255,193,7,.35);animation:spin 40s linear infinite}
-@keyframes spin{to{transform:rotate(360deg)}}
-.photo{position:relative;width:100%;height:100%;border-radius:28px;overflow:hidden;background:linear-gradient(145deg,#1a1a1a,#0d0d0d);border:1px solid var(--line);display:grid;place-items:center}
-.photo img{width:100%;height:100%;object-fit:cover}
-.initials{font-family:"Space Grotesk";font-size:110px;font-weight:700;color:var(--y);text-shadow:0 0 40px var(--yglow)}
-.badge{position:absolute;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px 14px;font-size:13px;box-shadow:0 10px 30px rgba(0,0,0,.5)}
-.badge b{color:var(--y);font-family:"Space Grotesk";font-size:20px;display:block}
-.b1{left:-30px;bottom:40px}.b2{right:-24px;top:30px}
-
-/* sections */
-section{padding:90px 0}
-.sec-head{margin-bottom:44px}
-.sec-head .mono{color:var(--y);font-size:13px;letter-spacing:2px}
-.sec-head h2{font-size:clamp(28px,4vw,42px);margin-top:8px}
-.sec-head p{color:var(--muted);margin-top:10px;max-width:640px}
+.hero{padding-top:96px;padding-bottom:64px}
+.pill{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border:1px solid var(--line);border-radius:99px;font-size:13px;color:var(--muted);background:rgba(20,23,34,.6)}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--good);box-shadow:0 0 0 4px rgba(52,211,153,.18)}
+.hero h1{font-size:clamp(38px,6.5vw,72px);line-height:1.04;letter-spacing:-.035em;font-weight:800;margin:22px 0 18px}
+.hero .role{font-size:clamp(17px,2.2vw,21px);color:var(--muted);max-width:760px}
+.hero .role b{color:var(--text);font-weight:600}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:12px;font-weight:600;font-size:15px;transition:transform .15s,box-shadow .15s,border-color .15s}
+.btn.primary{background:var(--grad);color:#fff;box-shadow:0 8px 30px -8px rgba(124,92,255,.6)}
+.btn.primary:hover{transform:translateY(-2px)}
+.btn.ghost{border:1px solid var(--line);color:var(--text);background:var(--card)}
+.btn.ghost:hover{border-color:var(--accent)}
+.terminal{margin-top:48px;background:var(--bg2);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;font-size:13.5px;color:var(--muted);max-width:640px;overflow-x:auto}
+.terminal .bar{display:flex;gap:6px;margin-bottom:12px}
+.terminal .bar i{width:10px;height:10px;border-radius:50%;background:#2c3145}
+.terminal .k{color:var(--accent2)} .terminal .s{color:var(--good)} .terminal .c{color:var(--dim)}
 
 /* stats */
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px}
-.stat{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px}
-.stat b{font-family:"Space Grotesk";font-size:34px;color:var(--y)}
-.stat span{display:block;color:var(--muted);font-size:14px}
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin:8px 0 40px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px 18px}
+.stat .n{font-size:32px;font-weight:800;letter-spacing:-.03em}
+.stat .l{font-size:13px;color:var(--muted);margin-top:2px}
 
-/* about */
-.about-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:40px}
-.about-grid p{color:var(--muted);margin-bottom:14px}
-.about-grid p strong{color:var(--text)}
-.hl{list-style:none;display:grid;gap:12px}
-.hl li{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--y);border-radius:12px;padding:14px 16px;font-size:15px}
-
-/* skills */
-.skills{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.skill{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px;transition:border-color .25s,transform .25s}
-.skill:hover{border-color:rgba(255,193,7,.5);transform:translateY(-4px)}
-.skill .ic{width:42px;height:42px;border-radius:12px;background:var(--yglow);display:grid;place-items:center;color:var(--y);font-size:20px;margin-bottom:14px}
-.skill h3{font-size:18px;margin-bottom:12px}
-.chips{display:flex;flex-wrap:wrap;gap:8px}
-.chip{font-size:12.5px;padding:5px 11px;border-radius:999px;background:#1d1d1d;border:1px solid var(--line);color:#d4d4d4}
+/* sections */
+section{padding:72px 0}
+.eyebrow{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent2);font-weight:600}
+h2{font-size:clamp(28px,4vw,40px);letter-spacing:-.03em;margin:8px 0 12px;line-height:1.15}
+.lead{color:var(--muted);max-width:680px;margin-bottom:40px}
 
 /* projects */
-.filters{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:28px}
-.filters button{background:var(--bg2);border:1px solid var(--line);color:var(--muted);padding:8px 16px;border-radius:999px;font-size:14px;cursor:pointer;font-family:inherit}
-.filters button.on,.filters button:hover{border-color:var(--y);color:var(--y)}
-.projects{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
-.proj{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px;display:flex;flex-direction:column;transition:border-color .25s,transform .25s;position:relative;overflow:hidden}
-.proj::after{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--y),transparent);opacity:0;transition:opacity .25s}
-.proj:hover{border-color:rgba(255,193,7,.45);transform:translateY(-4px)}
-.proj:hover::after{opacity:1}
-.proj .top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:10px}
-.proj h3{font-size:20px}
-.proj .cat{font-size:11px;letter-spacing:1.5px;color:var(--y);white-space:nowrap}
-.proj p{color:var(--muted);font-size:15px;margin-bottom:14px}
-.proj ul{color:var(--muted);font-size:14px;margin:0 0 16px 18px}
-.proj ul li{margin-bottom:4px}
-.proj .chips{margin-top:auto}
-.proj .acts{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
-.proj .acts a{font-size:13px;padding:7px 14px;border-radius:10px;border:1px solid var(--line)}
-.proj .acts a.v{background:var(--y);color:#111;border-color:var(--y);font-weight:600}
-.proj .acts a:hover{border-color:var(--y)}
-.proj.hide{display:none}
-.feat{grid-column:1/-1;background:linear-gradient(135deg,#1a1605,#141414 55%)}
+.projects{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.proj{background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;transition:border-color .2s,transform .2s}
+.proj:hover{border-color:rgba(124,92,255,.55);transform:translateY(-3px)}
+.proj.feature{grid-column:span 2;flex-direction:row}
+.proj.feature .media{flex:1.1;aspect-ratio:auto;min-height:320px}
+.proj.feature .body{flex:1}
+.media{position:relative;aspect-ratio:16/9;background:linear-gradient(135deg,#171a28,#11131c);border-bottom:1px solid var(--line)}
+.proj.feature .media{border-bottom:0;border-right:1px solid var(--line)}
+.media iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(--dim);font-size:13px;text-align:center;padding:20px;
+  background-image:linear-gradient(rgba(124,92,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(124,92,255,.07) 1px,transparent 1px);background-size:28px 28px}
+.ph .play{width:58px;height:58px;border-radius:50%;background:rgba(124,92,255,.15);border:1px solid rgba(124,92,255,.4);display:grid;place-items:center}
+.ph .play::after{content:"";border-left:16px solid var(--accent);border-top:10px solid transparent;border-bottom:10px solid transparent;margin-left:4px}
+.body{padding:24px 24px 26px;display:flex;flex-direction:column;gap:12px}
+.tag{font-size:12px;color:var(--accent2);font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+.proj h3{font-size:21px;letter-spacing:-.02em;line-height:1.25}
+.proj p{color:var(--muted);font-size:15px}
+.proj ul{list-style:none;display:flex;flex-direction:column;gap:6px;font-size:14.5px;color:var(--muted)}
+.proj li{padding-left:20px;position:relative}
+.proj li::before{content:"→";position:absolute;left:0;color:var(--accent)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:6px}
+.chip{font-size:12px;padding:4px 10px;border-radius:99px;background:var(--card2);border:1px solid var(--line);color:#c7cbe0}
+.plink{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:600;color:var(--accent2)}
+.plink:hover{text-decoration:underline}
+.badge-live{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:var(--good)}
 
 /* timeline */
-.tl{position:relative;padding-left:30px;border-left:2px solid var(--line)}
-.tli{position:relative;margin-bottom:40px}
-.tli::before{content:"";position:absolute;left:-39px;top:6px;width:16px;height:16px;border-radius:50%;background:var(--bg);border:3px solid var(--y)}
-.tli .when{font-size:13px;color:var(--y)}
-.tli h3{font-size:22px;margin:4px 0 2px}
-.tli .co{color:var(--muted);margin-bottom:12px}
-.tli ul{color:var(--muted);margin-left:18px}
-.tli ul li{margin-bottom:6px}
+.timeline{position:relative;padding-left:28px;display:flex;flex-direction:column;gap:26px}
+.timeline::before{content:"";position:absolute;left:7px;top:8px;bottom:8px;width:2px;background:linear-gradient(var(--accent),var(--accent2),transparent)}
+.job{position:relative;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px}
+.job::before{content:"";position:absolute;left:-27px;top:28px;width:14px;height:14px;border-radius:50%;background:var(--bg);border:3px solid var(--accent)}
+.job .top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 16px;align-items:baseline}
+.job h3{font-size:19px;letter-spacing:-.01em}
+.job .co{color:var(--accent2);font-weight:600;font-size:15px}
+.job .when{font-size:13px;color:var(--dim)}
+.job ul{margin-top:14px;padding-left:18px;color:var(--muted);font-size:15px;display:flex;flex-direction:column;gap:6px}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.skill{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px}
+.skill h4{font-size:15px;margin-bottom:12px;display:flex;align-items:center;gap:10px}
+.skill h4 .ic{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;background:rgba(124,92,255,.14);font-size:15px}
+
+/* clients / awards */
+.two{display:grid;grid-template-columns:1.2fr 1fr;gap:22px}
+.box{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:28px}
+.clients{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.client{padding:10px 16px;border-radius:12px;background:var(--card2);border:1px solid var(--line);font-weight:600;font-size:14px}
+.award{display:flex;gap:14px;align-items:flex-start;margin-top:16px}
+.award .ic{font-size:22px;width:44px;height:44px;border-radius:12px;background:rgba(34,211,238,.1);display:grid;place-items:center;flex-shrink:0}
+.award b{display:block}
+.award span{color:var(--muted);font-size:14px}
 
 /* contact */
-.contact{background:linear-gradient(135deg,#171204,#0f0f0f);border:1px solid var(--line);border-radius:24px;padding:50px;text-align:center}
-.contact h2{font-size:clamp(28px,4vw,44px)}
-.contact p{color:var(--muted);margin:12px auto 28px;max-width:560px}
+.contact{text-align:center;background:linear-gradient(135deg,rgba(124,92,255,.14),rgba(34,211,238,.08));border:1px solid var(--line);border-radius:24px;padding:56px 24px}
 .contact .cta{justify-content:center}
-footer{padding:30px 0;border-top:1px solid var(--line);color:var(--dim);font-size:14px;margin-top:60px}
-footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+footer{padding:36px 0 48px;color:var(--dim);font-size:13px;text-align:center}
 
-.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}
+/* reveal */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
 .reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
 
+/* responsive */
 @media (max-width:900px){
-  .hero-grid,.about-grid{grid-template-columns:1fr}
-  .photo-box{order:-1;width:min(260px,70vw)}
-  .skills{grid-template-columns:1fr 1fr}
+  .stats{grid-template-columns:repeat(3,1fr)}
   .projects{grid-template-columns:1fr}
-  .stats{grid-template-columns:1fr 1fr}
-  .b1{left:-10px}.b2{right:-10px}
+  .proj.feature{grid-column:auto;flex-direction:column}
+  .proj.feature .media{border-right:0;border-bottom:1px solid var(--line);min-height:0;aspect-ratio:16/9}
+  .skills{grid-template-columns:1fr 1fr}
+  .two{grid-template-columns:1fr}
 }
 @media (max-width:640px){
-  .links{display:none;position:absolute;top:64px;left:0;right:0;flex-direction:column;background:var(--bg);border-bottom:1px solid var(--line);padding:18px 20px;gap:16px}
+  .links{display:none;position:absolute;top:64px;left:0;right:0;flex-direction:column;gap:0;background:var(--bg2);border-bottom:1px solid var(--line)}
   .links.open{display:flex}
+  .links a{padding:14px 20px;border-top:1px solid var(--line)}
   .menu-btn{display:block}
+  .hero{padding-top:64px;padding-bottom:40px}
+  .stats{grid-template-columns:1fr 1fr}
   .skills{grid-template-columns:1fr}
-  section{padding:70px 0}
-  .contact{padding:34px 20px}
-  .initials{font-size:80px}
-  .badge{padding:6px 10px;font-size:11px}.badge b{font-size:15px}
-  .b1{left:-14px;bottom:-10px}.b2{right:-14px;top:-10px}
+  section{padding:56px 0}
 }
-@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
 </style>
 </head>
 <body>
 
-<nav id="nav">
-  <div class="wrap nav-in">
-    <a href="#top" class="logo">Ajay<span>.</span>dev</a>
-    <button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
-    <div class="links" id="links">
-      <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#contact">Contact</a>
+<nav>
+  <div class="wrap">
+    <a href="#top" class="logo">ajaya<span>.dev</span></a>
+    <button class="menu-btn" aria-label="Menu" onclick="document.querySelector('.links').classList.toggle('open')">☰</button>
+    <div class="links">
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
     </div>
   </div>
 </nav>
 
-<header class="hero" id="top">
-  <div class="wrap hero-grid">
-    <div>
-      <span class="tag"><i class="dot"></i> Open to new opportunities</span>
-      <h1>Hi, I'm <span class="y">Ajaya Kumar Behura</span></h1>
-      <div class="role mono"><span id="typed"></span><span class="caret"></span></div>
-      <div class="motto mono">IDEAS &nbsp;|&nbsp; CODE &nbsp;|&nbsp; SOLUTIONS</div>
-      <p class="lead">I design and build end-to-end business software — Sales Force Automation, Loyalty, Dealer Management, HRMS — from database architecture to production web and mobile apps, now with AI built in.</p>
-      <div class="cta">
-        <a class="btn btn-y" href="#projects">View my work →</a>
-        <a class="btn btn-o" href="mailto:ajayakumarbehura12@gmail.com">Hire me</a>
-        <a class="btn btn-o" href="https://github.com/geniuneAjay" target="_blank" rel="noopener">GitHub</a>
-      </div>
-    </div>
-    <div class="photo-box">
-      <div class="photo">
-        <!-- Replace photo.jpg in the repo with your own picture -->
-        <img src="photo.jpg" alt="Ajaya Kumar Behura" onerror="this.remove();document.getElementById('ini').style.display='block'">
-        <span class="initials" id="ini" style="display:none">AB</span>
-      </div>
-      <div class="badge b1"><b>10+</b>Apps shipped</div>
-      <div class="badge b2"><b>AI</b>in production</div>
-    </div>
+<header class="hero wrap" id="top">
+  <span class="pill"><span class="dot"></span> Open to senior full stack / tech lead roles</span>
+  <h1>Hi, I'm Ajaya.<br><span class="grad">I build products that run in the field.</span></h1>
+  <p class="role"><b>Senior Full Stack Developer</b> — React.js, Next.js, Angular · Node.js, PHP · React Native with native <b>Kotlin &amp; Swift</b> · <b>AI integration</b>. I own apps end to end: requirements, database design, code, App Store / Play Store release and cloud deployment.</p>
+  <div class="cta">
+    <a class="btn primary" href="#projects">View projects ↓</a>
+    <a class="btn ghost" id="resumeBtn" href="#" target="_blank" rel="noopener">Download resume</a>
+    <a class="btn ghost" href="https://github.com/geniuneAjay" target="_blank" rel="noopener">GitHub</a>
+  </div>
+
+  <div class="terminal mono">
+    <div class="bar"><i></i><i></i><i></i></div>
+    <div><span class="k">const</span> ajaya = {</div>
+    <div>&nbsp;&nbsp;role: <span class="s">"Senior Full Stack Dev · Team Lead"</span>,</div>
+    <div>&nbsp;&nbsp;now: <span class="s">"Wigwam Ply (Savitri Woods)"</span>,</div>
+    <div>&nbsp;&nbsp;stack: [<span class="s">"React"</span>, <span class="s">"Next.js"</span>, <span class="s">"Angular"</span>, <span class="s">"Node"</span>, <span class="s">"PHP"</span>, <span class="s">"Kotlin"</span>, <span class="s">"Swift"</span>],</div>
+    <div>&nbsp;&nbsp;loves: <span class="s">"shipping AI into real workflows"</span> <span class="c">// NL→SQL, voice, chatbots</span></div>
+    <div>};</div>
   </div>
 </header>
 
-<section id="about">
-  <div class="wrap">
-    <div class="sec-head reveal"><span class="mono">01 / ABOUT</span><h2>Builder of business-critical systems</h2></div>
-    <div class="about-grid">
-      <div class="reveal">
-        <p>I'm a <strong>Senior Full Stack Developer</strong> based in Faridabad, Haryana, currently leading technology and sales operations at <strong>Savitri Woods India Pvt. Ltd. (Wigwam Ply)</strong> — a plywood and block board manufacturer operating across multiple Indian states.</p>
-        <p>I independently built the company's entire in-house software suite — <strong>SFA, Loyalty, Store Management, Guard Management and HRMS</strong>. I own the full lifecycle: gathering requirements, designing the database, writing the back-end and front-end, shipping mobile apps to the Play Store and App Store, and running them on production servers.</p>
-        <p>Lately I've been bringing <strong>AI into everyday field operations</strong> — natural-language reporting, voice commands and chatbots that help sales teams and dealers get answers instantly.</p>
-      </div>
-      <ul class="hl reveal">
-        <li>🧭 Requirements → DB design → APIs → Web &amp; Mobile → Deployment</li>
-        <li>📱 Native Kotlin &amp; Swift background location plugin for Ionic and React Native</li>
-        <li>🤖 GPT-powered natural-language-to-SQL reporting and voice check-ins</li>
-        <li>🏢 Multi-tenant 360° platform: SFA, Loyalty, Dealer &amp; Service</li>
-        <li>🚀 End-to-end App Store / Play Store releases and server deployments</li>
-      </ul>
-    </div>
-    <div class="stats reveal">
-      <div class="stat"><b>3+</b><span>Years building SFA &amp; loyalty</span></div>
-      <div class="stat"><b>10+</b><span>Products delivered</span></div>
-      <div class="stat"><b>5</b><span>In-house systems built solo</span></div>
-      <div class="stat"><b>2</b><span>App stores — iOS &amp; Android</span></div>
-    </div>
+<div class="wrap">
+  <div class="stats reveal">
+    <div class="stat"><div class="n grad">3+</div><div class="l">Years building production apps</div></div>
+    <div class="stat"><div class="n grad">7+</div><div class="l">Business platforms shipped</div></div>
+    <div class="stat"><div class="n grad">4000+</div><div class="l">Field &amp; office users</div></div>
+    <div class="stat"><div class="n grad">10k+</div><div class="l">Loyalty QR scans handled</div></div>
+    <div class="stat"><div class="n grad">7+</div><div class="l">Plywood &amp; laminate brands</div></div>
   </div>
-</section>
-
-<section id="skills">
-  <div class="wrap">
-    <div class="sec-head reveal"><span class="mono">02 / SKILLS</span><h2>Tech stack</h2><p>The tools I use to take an idea from a whiteboard to a live product.</p></div>
-    <div class="skills">
-      <div class="skill reveal"><div class="ic">⌘</div><h3>Frontend</h3><div class="chips"><span class="chip">React.js</span><span class="chip">Next.js</span><span class="chip">Angular</span><span class="chip">TypeScript</span><span class="chip">JavaScript</span><span class="chip">HTML5 / CSS3</span></div></div>
-      <div class="skill reveal"><div class="ic">📱</div><h3>Mobile</h3><div class="chips"><span class="chip">React Native</span><span class="chip">Ionic</span><span class="chip">Kotlin (plugins)</span><span class="chip">Swift (plugins)</span><span class="chip">Xcode</span><span class="chip">Play Store / App Store</span></div></div>
-      <div class="skill reveal"><div class="ic">⚙</div><h3>Backend</h3><div class="chips"><span class="chip">PHP</span><span class="chip">Node.js</span><span class="chip">REST APIs</span><span class="chip">Multi-tenant architecture</span><span class="chip">System design</span></div></div>
-      <div class="skill reveal"><div class="ic">🗄</div><h3>Database</h3><div class="chips"><span class="chip">MySQL</span><span class="chip">SQL</span><span class="chip">PostgreSQL (basic)</span><span class="chip">Schema design</span></div></div>
-      <div class="skill reveal"><div class="ic">✦</div><h3>AI Integration</h3><div class="chips"><span class="chip">OpenAI GPT</span><span class="chip">NL → SQL</span><span class="chip">LLM chatbots</span><span class="chip">Voice commands</span><span class="chip">Claude Code</span></div></div>
-      <div class="skill reveal"><div class="ic">☁</div><h3>DevOps &amp; Web</h3><div class="chips"><span class="chip">Oracle Cloud</span><span class="chip">Hostinger</span><span class="chip">Domains &amp; SSL</span><span class="chip">WordPress</span><span class="chip">SEO</span><span class="chip">Git / GitHub</span></div></div>
-    </div>
-  </div>
-</section>
+</div>
 
 <section id="projects">
   <div class="wrap">
-    <div class="sec-head reveal"><span class="mono">03 / PROJECTS</span><h2>Selected work</h2><p>Production systems used daily by field sales teams, dealers, contractors and staff.</p></div>
-    <div class="filters reveal" id="filters">
-      <button class="on" data-f="all">All</button>
-      <button data-f="sfa">SFA &amp; Sales</button>
-      <button data-f="loyalty">Loyalty</button>
-      <button data-f="ai">AI</button>
-      <button data-f="ops">Operations &amp; HR</button>
-      <button data-f="mobile">Mobile / Native</button>
-    </div>
-    <div class="projects" id="projGrid">
+    <div class="eyebrow">Selected work</div>
+    <h2>Projects</h2>
+    <p class="lead">Company and client source code stays private, so each project is shown with a short video walkthrough and the story behind it.</p>
 
-      <article class="proj feat reveal" data-c="sfa ai mobile">
-        <div class="top"><h3>Wigwam SFA — AI-powered Sales Force Automation</h3><span class="cat mono">FLAGSHIP</span></div>
-        <p>Complete field sales platform for Wigwam Ply's sales team across multiple states — attendance, beat plans, party check-ins, orders, targets and live GPS tracking, with an admin web panel for monthly reviews.</p>
-        <ul>
-          <li>Ask questions in plain English — GPT converts them into SQL and returns live reports</li>
-          <li>Voice-command party check-in for field users</li>
-          <li>Background GPS tracking via a custom native plugin; outstation &amp; field-working analysis</li>
-          <li>Target tracking and MRM (monthly review meeting) dashboards</li>
-        </ul>
-        <div class="chips"><span class="chip">Angular</span><span class="chip">Ionic</span><span class="chip">PHP</span><span class="chip">MySQL</span><span class="chip">OpenAI</span><span class="chip">Kotlin / Swift</span></div>
-        <div class="acts" data-video=""></div>
+    <div class="projects">
+
+      <article class="proj feature reveal">
+        <div class="media" data-video="location"></div>
+        <div class="body">
+          <div class="tag">Native mobile · Flagship</div>
+          <h3>Background Location Tracking Plugin</h3>
+          <p>A native plugin written from scratch in Kotlin (Android) and Swift (iOS), packaged once and used from both Ionic and React Native apps.</p>
+          <ul>
+            <li>Keeps tracking even when the app is in the background or fully closed</li>
+            <li>Battery-optimised updates to save reps' phones</li>
+            <li>Offline storage with auto-sync, so no GPS data is lost in low-network areas</li>
+            <li>Powers GPS attendance &amp; route monitoring for 4000+ users</li>
+          </ul>
+          <div class="chips"><span class="chip">Kotlin</span><span class="chip">Swift</span><span class="chip">Xcode</span><span class="chip">Ionic</span><span class="chip">React Native</span></div>
+        </div>
       </article>
 
-      <article class="proj reveal" data-c="sfa loyalty">
-        <div class="top"><h3>360° Multi-tenant Business Platform</h3><span class="cat mono">SAAS</span></div>
-        <p>One platform that onboards multiple companies, each with SFA, Loyalty, Dealer Management and Service modules — configurable per tenant.</p>
-        <div class="chips"><span class="chip">Next.js</span><span class="chip">React</span><span class="chip">React Native</span><span class="chip">Node.js</span></div>
-        <div class="acts" data-video=""></div>
+      <article class="proj reveal">
+        <div class="media" data-video="nlsql"></div>
+        <div class="body">
+          <div class="tag">AI · Reporting</div>
+          <h3>AI Reporting Assistant (Natural Language → SQL)</h3>
+          <p>Managers ask a question in plain English; GPT reads the schema, writes the SQL, runs it on live data and answers back in plain language — no developer needed.</p>
+          <div class="chips"><span class="chip">OpenAI GPT</span><span class="chip">PHP</span><span class="chip">MySQL</span></div>
+        </div>
       </article>
 
-      <article class="proj reveal" data-c="sfa">
-        <div class="top"><h3>Magnus — SFA Demo Product</h3><span class="cat mono">PRODUCT</span></div>
-        <p>A full SFA product demo — web panel, backend and mobile app — built to showcase field sales automation to new clients.</p>
-        <div class="chips"><span class="chip">React</span><span class="chip">React Native</span><span class="chip">Node.js</span></div>
-        <div class="acts" data-video="" data-live=""></div>
+      <article class="proj reveal">
+        <div class="media" data-video="voice"></div>
+        <div class="body">
+          <div class="tag">AI · Mobile</div>
+          <h3>Voice Assistant for SFA</h3>
+          <p>Field reps check in, mark attendance and log expenses just by speaking — say a party's name and you're checked in there. No forms on the move.</p>
+          <div class="chips"><span class="chip">Voice recognition</span><span class="chip">Mobile</span><span class="chip">SFA</span></div>
+        </div>
       </article>
 
-      <article class="proj reveal" data-c="loyalty">
-        <div class="top"><h3>Wigwam Loyalty Program</h3><span class="cat mono">LOYALTY</span></div>
-        <p>Reward platform for dealers, carpenters and contractors — QR/coupon scanning, points, redemption, schemes and an admin panel to manage campaigns.</p>
-        <div class="chips"><span class="chip">Ionic</span><span class="chip">Angular</span><span class="chip">PHP</span><span class="chip">MySQL</span></div>
-        <div class="acts" data-video=""></div>
+      <article class="proj reveal">
+        <div class="media" data-video="basiq"></div>
+        <div class="body">
+          <div class="tag">Product · Multi-tenant</div>
+          <h3>Basiq360 — 360° Business Platform</h3>
+          <p>One configurable codebase serving many client companies: SFA, Loyalty, Dealer Management and Service.</p>
+          <ul>
+            <li>Live rep routes on web maps, offline capture with auto-sync</li>
+            <li>QR loyalty with points, payment gateway &amp; JWT auth</li>
+            <li>Distributor ordering, inventory &amp; delivery tracking</li>
+          </ul>
+          <div class="chips"><span class="chip">Next.js</span><span class="chip">React</span><span class="chip">React Native</span><span class="chip">Node.js</span><span class="chip">Redux</span></div>
+        </div>
       </article>
 
-      <article class="proj reveal" data-c="loyalty">
-        <div class="top"><h3>Advance Ply — Loyalty &amp; Scheme Management</h3><span class="cat mono">CLIENT</span></div>
-        <p>Loyalty and scheme management app for Advance Laminates / Advance Ply, covering influencer registration, scheme rules, points and redemptions.</p>
-        <div class="chips"><span class="chip">Mobile App</span><span class="chip">Admin Panel</span><span class="chip">PHP</span></div>
-        <div class="acts" data-video=""></div>
+      <article class="proj reveal">
+        <div class="media" data-video="magnus"></div>
+        <div class="body">
+          <div class="tag">Web · Live demo</div>
+          <h3>Magnus SFA</h3>
+          <p>Sales Force Automation console — field attendance, dealer visits, live route tracking, lead and order capture in one place.</p>
+          <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:center">
+            <a class="plink" href="https://geniuneajay.github.io/magnus-demo/" target="_blank" rel="noopener">Open live demo ↗</a>
+            <span class="badge-live"><span class="dot"></span> Live</span>
+          </div>
+          <div class="chips"><span class="chip">Angular</span><span class="chip">PHP</span><span class="chip">MySQL</span><span class="chip">Leaflet</span><span class="chip">React Native</span></div>
+        </div>
       </article>
 
-      <article class="proj reveal" data-c="ai">
-        <div class="top"><h3>Dealer Query LLM Chatbot</h3><span class="cat mono">AI</span></div>
-        <p>LLM-based assistant that answers dealer queries — orders, schemes, points and product info — from live company data, reducing load on the sales support team.</p>
-        <div class="chips"><span class="chip">LLM</span><span class="chip">OpenAI</span><span class="chip">PHP / Node.js</span></div>
-        <div class="acts" data-video=""></div>
+      <article class="proj reveal">
+        <div class="media" data-video="n8n"></div>
+        <div class="body">
+          <div class="tag">AI · Automation</div>
+          <h3>AI Workflow Automation</h3>
+          <p>An n8n flow that picks up Slack mentions, turns them into clear tasks with GPT and files them in the internal portal automatically — plus an AI-assisted prototyping setup for fast client demos.</p>
+          <div class="chips"><span class="chip">n8n</span><span class="chip">OpenAI</span><span class="chip">Claude API</span><span class="chip">Slack API</span><span class="chip">Playwright MCP</span></div>
+        </div>
       </article>
 
-      <article class="proj reveal" data-c="mobile">
-        <div class="top"><h3>Native Background Location Plugin</h3><span class="cat mono">NATIVE</span></div>
-        <p>Custom background location tracking plugin written in Kotlin (Android) and Swift (iOS), packaged for both Ionic and React Native — reliable tracking even when the app is closed.</p>
-        <div class="chips"><span class="chip">Kotlin</span><span class="chip">Swift</span><span class="chip">Ionic</span><span class="chip">React Native</span></div>
-        <div class="acts" data-video=""></div>
-      </article>
-
-      <article class="proj reveal" data-c="ops">
-        <div class="top"><h3>HRMS</h3><span class="cat mono">HR</span></div>
-        <p>Human resource management system — employee master, attendance, leave and payroll data processing with formatted reports.</p>
-        <div class="chips"><span class="chip">Angular</span><span class="chip">PHP</span><span class="chip">MySQL</span></div>
-        <div class="acts" data-video=""></div>
-      </article>
-
-      <article class="proj reveal" data-c="ops">
-        <div class="top"><h3>Store Management System</h3><span class="cat mono">OPS</span></div>
-        <p>Inventory and store operations — stock in/out, material issue and tracking for the factory store.</p>
-        <div class="chips"><span class="chip">Angular</span><span class="chip">PHP</span><span class="chip">MySQL</span></div>
-        <div class="acts" data-video=""></div>
-      </article>
-
-      <article class="proj reveal" data-c="ops mobile">
-        <div class="top"><h3>Guard Management System</h3><span class="cat mono">OPS</span></div>
-        <p>Security operations app — gate entry/exit logging, visitor and vehicle records, and guard duty monitoring.</p>
-        <div class="chips"><span class="chip">Ionic</span><span class="chip">PHP</span><span class="chip">MySQL</span></div>
-        <div class="acts" data-video=""></div>
+      <article class="proj reveal">
+        <div class="media" data-video="chatbot"></div>
+        <div class="body">
+          <div class="tag">AI · Support</div>
+          <h3>AI Chatbot for Dealer Queries</h3>
+          <p>An LLM chatbot that answers dealer and business questions in natural language, taking routine support load off the sales team.</p>
+          <div class="chips"><span class="chip">OpenAI API</span><span class="chip">LLM</span></div>
+        </div>
       </article>
 
     </div>
@@ -339,30 +299,79 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 
 <section id="experience">
   <div class="wrap">
-    <div class="sec-head reveal"><span class="mono">04 / EXPERIENCE</span><h2>Where I've worked</h2></div>
-    <div class="tl">
-      <div class="tli reveal">
-        <span class="when mono">APR 2026 — PRESENT</span>
-        <h3>Senior Full Stack Developer – Leading Team &amp; Sales Operations</h3>
-        <div class="co">Savitri Woods India Pvt. Ltd. (Wigwam Ply) · Hoshiarpur / Faridabad</div>
+    <div class="eyebrow">Career</div>
+    <h2>Experience</h2>
+    <p class="lead">From building multi-tenant products for many brands to owning a company's entire in-house tech stack.</p>
+    <div class="timeline">
+      <div class="job reveal">
+        <div class="top">
+          <div><h3>Senior Full Stack Developer — Team &amp; Sales Ops Lead</h3><div class="co">Savitri Woods (Wigwam Ply)</div></div>
+          <div class="when mono">Apr 2026 — Present</div>
+        </div>
         <ul>
-          <li>Built and run all in-house software: SFA, Loyalty, Store Management, Guard Management and HRMS</li>
-          <li>Integrated AI into SFA — GPT natural-language-to-SQL reporting and voice-command check-ins</li>
-          <li>Lead sales operations: MRM reviews, target tracking and field-working analysis</li>
-          <li>Oversee HR data operations and marketing / SEO content review</li>
+          <li>Lead and mentor the dev team: planning, code reviews, shared features.</li>
+          <li>Own the full in-house stack — SFA, Loyalty, HRMS, Store, Hiring, Maintenance, Guard Management.</li>
+          <li>Brought AI into the SFA: NL→SQL reporting, voice check-ins, dealer chatbots.</li>
+          <li>Designed schemas for high-volume GPS, order and attendance modules.</li>
+          <li>Deploy and run production on Oracle Cloud and Hostinger (domains, SSL, backups).</li>
+          <li>Run Sales Operations: monthly reviews, target tracking and field-work dashboards.</li>
         </ul>
       </div>
-      <div class="tli reveal">
-        <span class="when mono">SEP 2023 — MAR 2026</span>
-        <h3>Full Stack Developer</h3>
-        <div class="co">AbacusDesk IT Solutions</div>
+      <div class="job reveal">
+        <div class="top">
+          <div><h3>Full Stack &amp; Mobile Application Developer</h3><div class="co">AbacusDesk IT Solutions</div></div>
+          <div class="when mono">Sep 2023 — Mar 2026</div>
+        </div>
         <ul>
-          <li>Built SFA, loyalty and dealer management solutions for plywood &amp; building-materials brands</li>
-          <li>Developed a multi-tenant 360° product on Next.js, React, React Native and Node.js</li>
-          <li>Created a native Kotlin/Swift background location plugin; managed iOS &amp; Android releases</li>
-          <li>Deployed and maintained production apps on Oracle and Hostinger servers</li>
+          <li>Built Basiq360, a multi-tenant SFA / Loyalty / DMS / Service product.</li>
+          <li>Wrote the native Kotlin + Swift background location plugin — earned special recognition.</li>
+          <li>Owned iOS &amp; Android releases end to end: signing, TestFlight, store reviews.</li>
+          <li>Led client meetings from requirements to go-live for 7+ brands.</li>
+          <li>Cut manual reporting by 40% and improved order accuracy by 15%.</li>
         </ul>
       </div>
+      <div class="job reveal">
+        <div class="top">
+          <div><h3>MCA · B.Sc. Computer Science</h3><div class="co">Maharishi Dayanand University</div></div>
+          <div class="when mono">2019 — 2024</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="eyebrow">Toolbox</div>
+    <h2>Skills</h2>
+    <p class="lead">Comfortable across the whole stack — from native mobile modules to database design and cloud deployment.</p>
+    <div class="skills">
+      <div class="skill reveal"><h4><span class="ic">🖥️</span>Frontend</h4><div class="chips"><span class="chip">React.js</span><span class="chip">Next.js</span><span class="chip">Angular</span><span class="chip">TypeScript</span><span class="chip">JavaScript ES6+</span><span class="chip">Redux</span><span class="chip">NgRx</span><span class="chip">HTML/CSS</span></div></div>
+      <div class="skill reveal"><h4><span class="ic">📱</span>Mobile</h4><div class="chips"><span class="chip">React Native</span><span class="chip">Ionic</span><span class="chip">Kotlin</span><span class="chip">Swift</span><span class="chip">Native plugins</span><span class="chip">Offline sync</span><span class="chip">App Store / Play</span></div></div>
+      <div class="skill reveal"><h4><span class="ic">⚙️</span>Backend &amp; APIs</h4><div class="chips"><span class="chip">Node.js</span><span class="chip">PHP</span><span class="chip">REST APIs</span><span class="chip">JWT</span><span class="chip">RBAC</span><span class="chip">Payment gateways</span></div></div>
+      <div class="skill reveal"><h4><span class="ic">🗄️</span>Databases</h4><div class="chips"><span class="chip">MySQL</span><span class="chip">Schema design</span><span class="chip">Query optimisation</span><span class="chip">PostgreSQL</span><span class="chip">Firebase</span></div></div>
+      <div class="skill reveal"><h4><span class="ic">🤖</span>AI &amp; Automation</h4><div class="chips"><span class="chip">OpenAI GPT</span><span class="chip">Claude API</span><span class="chip">NL → SQL</span><span class="chip">Chatbots</span><span class="chip">Voice</span><span class="chip">n8n</span><span class="chip">Playwright MCP</span><span class="chip">Claude Code</span></div></div>
+      <div class="skill reveal"><h4><span class="ic">☁️</span>Cloud &amp; DevOps</h4><div class="chips"><span class="chip">Oracle Cloud</span><span class="chip">Hostinger</span><span class="chip">Linux servers</span><span class="chip">Docker</span><span class="chip">CI/CD</span><span class="chip">Git / GitHub</span><span class="chip">Domains &amp; SSL</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap two">
+    <div class="box reveal">
+      <div class="eyebrow">Trusted by</div>
+      <h2 style="font-size:26px">Brands I've built for</h2>
+      <p style="color:var(--muted);font-size:15px">SFA, loyalty, scheme, claims and incentive automation.</p>
+      <div class="clients">
+        <span class="client">Wigwam Ply</span><span class="client">Oggan Laminate</span><span class="client">Advance Laminates</span><span class="client">Black Cobra</span><span class="client">Amulya Mica</span><span class="client">Sylvan Ply</span><span class="client">Woodline</span><span class="client">Real Ply</span>
+      </div>
+    </div>
+    <div class="box reveal">
+      <div class="eyebrow">Recognition</div>
+      <h2 style="font-size:26px">Awards</h2>
+      <div class="award"><div class="ic">🏆</div><div><b>Best Coder 2024</b><span>AbacusDesk IT Solutions</span></div></div>
+      <div class="award"><div class="ic">🧠</div><div><b>Best Critical Problem Solver</b><span>Award + cash reward for fixing a mission-critical production issue for a major client</span></div></div>
+      <div class="award"><div class="ic">📍</div><div><b>Special recognition</b><span>For the native background location tracking system</span></div></div>
     </div>
   </div>
 </section>
@@ -370,71 +379,61 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 <section id="contact">
   <div class="wrap">
     <div class="contact reveal">
-      <span class="mono y" style="font-size:13px;letter-spacing:2px">05 / CONTACT</span>
-      <h2 style="margin-top:10px">Have an idea? Let's build it.</h2>
-      <p>Looking for someone to build your SFA, loyalty program or custom business app — or a developer who can own a product end to end? I'd love to hear from you.</p>
+      <div class="eyebrow">Let's talk</div>
+      <h2>Have a product to build?</h2>
+      <p class="lead" style="margin:0 auto 8px">I'm happy to chat about full stack, mobile or AI-heavy roles and projects.</p>
       <div class="cta">
-        <a class="btn btn-y" href="mailto:ajayakumarbehura12@gmail.com">✉ ajayakumarbehura12@gmail.com</a>
-        <a class="btn btn-o" href="https://github.com/geniuneAjay" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn primary" href="mailto:ajayakumarbehura12@gmail.com">✉ Email me</a>
+        <a class="btn ghost" id="linkedinBtn" href="#" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn ghost" href="https://github.com/geniuneAjay" target="_blank" rel="noopener">GitHub</a>
       </div>
+      <p class="mono" style="margin-top:22px;color:var(--dim);font-size:13px">📍 Faridabad, Haryana, India</p>
     </div>
   </div>
 </section>
 
 <footer>
-  <div class="wrap"><span>© <span id="yr"></span> Ajaya Kumar Behura</span><span class="mono">Ideas | Code | Solutions</span></div>
+  <div class="wrap">© <span id="yr"></span> Ajaya Kumar Behura · Built by hand, hosted on GitHub Pages</div>
 </footer>
 
 <script>
-/* ===== Add your Google Drive video links here =====
-   Key = project title (exact), value = share link. Leave "" to hide the button. */
+/* ================== EDIT HERE ==================
+   Google Drive video ka "Share" link yahan paste karo
+   (Anyone with the link -> Viewer). Khali chhodoge to placeholder dikhega. */
 const VIDEOS = {
-  "Wigwam SFA — AI-powered Sales Force Automation": "",
-  "360° Multi-tenant Business Platform": "",
-  "Magnus — SFA Demo Product": "",
-  "Wigwam Loyalty Program": "",
-  "Advance Ply — Loyalty & Scheme Management": "",
-  "Dealer Query LLM Chatbot": "",
-  "Native Background Location Plugin": "",
-  "HRMS": "",
-  "Store Management System": "",
-  "Guard Management System": ""
+  location: "",   // Background Location Plugin
+  nlsql:    "",   // AI Reporting Assistant (NL -> SQL)
+  voice:    "",   // Voice Assistant
+  basiq:    "",   // Basiq360
+  magnus:   "",   // Magnus SFA
+  n8n:      "",   // AI Workflow Automation
+  chatbot:  ""    // AI Chatbot
 };
-const LIVE = { "Magnus — SFA Demo Product": "" };
+const RESUME_LINK   = "";  // Resume PDF ka Google Drive link
+const LINKEDIN_LINK = "";  // LinkedIn profile URL
+/* =============================================== */
 
-document.querySelectorAll('.proj').forEach(p=>{
-  const t=p.querySelector('h3').textContent.trim(), a=p.querySelector('.acts');
-  if(VIDEOS[t]) a.insertAdjacentHTML('beforeend',`<a class="v" href="${VIDEOS[t]}" target="_blank" rel="noopener">▶ Watch demo</a>`);
-  if(LIVE[t]) a.insertAdjacentHTML('beforeend',`<a href="${LIVE[t]}" target="_blank" rel="noopener">Live demo ↗</a>`);
-  if(!a.children.length) a.remove();
+function driveEmbed(url){
+  const m = url.match(/\/d\/([\w-]+)/) || url.match(/[?&]id=([\w-]+)/);
+  return m ? "https://drive.google.com/file/d/" + m[1] + "/preview" : url;
+}
+document.querySelectorAll(".media[data-video]").forEach(el => {
+  const url = (VIDEOS[el.dataset.video] || "").trim();
+  if (url) {
+    el.innerHTML = '<iframe src="' + driveEmbed(url) + '" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe>';
+  } else {
+    el.innerHTML = '<div class="ph"><div class="play"></div><div>Video walkthrough coming soon</div></div>';
+  }
 });
+const rb = document.getElementById("resumeBtn");
+if (RESUME_LINK) rb.href = RESUME_LINK; else rb.style.display = "none";
+const lb = document.getElementById("linkedinBtn");
+if (LINKEDIN_LINK) lb.href = LINKEDIN_LINK; else lb.style.display = "none";
+document.getElementById("yr").textContent = new Date().getFullYear();
+document.querySelectorAll(".links a").forEach(a => a.addEventListener("click", () => document.querySelector(".links").classList.remove("open")));
 
-// typing effect
-const roles=["Senior Full Stack Developer","React · React Native · Node.js · PHP","SFA & Loyalty Systems Specialist","AI Integration Enthusiast"];
-let ri=0,ci=0,del=false;const el=document.getElementById('typed');
-(function type(){const w=roles[ri];el.textContent=w.slice(0,ci);
-  if(!del&&ci<w.length){ci++;setTimeout(type,70)}
-  else if(!del){del=true;setTimeout(type,1600)}
-  else if(ci>0){ci--;setTimeout(type,35)}
-  else{del=false;ri=(ri+1)%roles.length;setTimeout(type,300)}})();
-
-// filters
-document.getElementById('filters').addEventListener('click',e=>{
-  const b=e.target.closest('button');if(!b)return;
-  document.querySelectorAll('#filters button').forEach(x=>x.classList.toggle('on',x===b));
-  const f=b.dataset.f;
-  document.querySelectorAll('.proj').forEach(p=>p.classList.toggle('hide',f!=='all'&&!p.dataset.c.split(' ').includes(f)));
-});
-
-// reveal on scroll
-const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}}),{threshold:.12});
-document.querySelectorAll('.reveal').forEach(r=>io.observe(r));
-
-// nav
-const nav=document.getElementById('nav');addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>20));
-const links=document.getElementById('links');document.getElementById('menuBtn').onclick=()=>links.classList.toggle('open');
-links.querySelectorAll('a').forEach(a=>a.onclick=()=>links.classList.remove('open'));
-document.getElementById('yr').textContent=new Date().getFullYear();
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), {threshold: .12});
+document.querySelectorAll(".reveal").forEach(el => io.observe(el));
 </script>
 </body>
 </html>
