@@ -48,9 +48,10 @@ nav .wrap{height:72px;display:flex;align-items:center;justify-content:space-betw
 .ctas{display:flex;flex-wrap:wrap;gap:12px}
 .photo{position:relative;height:560px;max-width:420px;width:100%;justify-self:center}
 .photo .back{position:absolute;left:40px;top:0;right:0;height:520px;border-radius:28px;border:1px solid var(--line2);background:var(--card)}
-.photo img,.photo .ini{position:absolute;left:0;top:36px;width:calc(100% - 40px);height:500px;object-fit:cover;border-radius:24px;filter:grayscale(1) contrast(1.05)}
-.photo .ini{display:none;align-items:center;justify-content:center;background:var(--media);border:1px solid var(--line2);font-family:Sora,sans-serif;font-size:96px;font-weight:800;color:var(--a1);filter:none}
-.photo.noimg img{display:none}.photo.noimg .ini{display:flex}
+.photo .pic,.photo .ini{position:absolute;left:0;top:36px;width:calc(100% - 40px);height:500px;border-radius:24px;overflow:hidden}
+.photo .pic img{display:block;width:100%;height:100%;object-fit:cover;object-position:45% 88%;transform:scale(1.4);transform-origin:45% 88%;filter:grayscale(1) contrast(1.05)}
+.photo .ini{display:none;align-items:center;justify-content:center;background:var(--media);border:1px solid var(--line2);font-family:Sora,sans-serif;font-size:96px;font-weight:800;color:var(--a1)}
+.photo.noimg .pic{display:none}.photo.noimg .ini{display:flex}
 .photo .now{position:absolute;left:-28px;bottom:0;padding:16px 20px;border-radius:16px;background:var(--card);border:1px solid var(--line2);display:flex;flex-direction:column;gap:2px}
 .now small{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--a2)}
 .now b{font-size:16px}.now span{font-size:13px;color:var(--muted)}
@@ -130,7 +131,7 @@ footer .wrap{padding-top:28px;padding-bottom:28px;display:flex;justify-content:s
 @media (max-width:980px){
   .hero{grid-template-columns:1fr;gap:40px;padding-top:48px}
   .photo{max-width:380px;height:500px}
-  .photo .back{height:460px}.photo img,.photo .ini{height:440px}
+  .photo .back{height:460px}.photo .pic,.photo .ini{height:440px}
   .stats{grid-template-columns:repeat(3,minmax(0,1fr))}
   .grid3{grid-template-columns:repeat(2,minmax(0,1fr))}
   .grid4{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -150,7 +151,7 @@ footer .wrap{padding-top:28px;padding-bottom:28px;display:flex;justify-content:s
   .hero h1{letter-spacing:-1.2px}
   .ctas .btn{flex:1 1 140px}
   .ctas .btn.pri{flex-basis:100%}
-  .photo{height:420px}.photo .back{left:24px;height:390px}.photo img,.photo .ini{top:24px;height:380px;width:calc(100% - 24px)}
+  .photo{height:420px}.photo .back{left:24px;height:390px}.photo .pic,.photo .ini{top:24px;height:380px;width:calc(100% - 24px)}
   .photo .now{left:auto;right:0}
   .stats{grid-template-columns:repeat(2,minmax(0,1fr));padding-bottom:56px}
   .stat:last-child{grid-column:span 2}
@@ -195,7 +196,7 @@ footer .wrap{padding-top:28px;padding-bottom:28px;display:flex;justify-content:s
   </div>
   <div class="photo" id="photo">
     <div class="back"></div>
-    <img src="ajaya.jpg" alt="Ajaya Kumar Behura" onerror="document.getElementById('photo').classList.add('noimg')">
+    <div class="pic"><img src="ajaya.jpg?v=2" alt="Ajaya Kumar Behura" onerror="document.getElementById('photo').classList.add('noimg')"></div>
     <div class="ini">AB</div>
     <div class="now"><small>now()</small><b>Leading dev &amp; sales ops</b><span>Wigwam Ply · Savitri Woods</span></div>
   </div>
