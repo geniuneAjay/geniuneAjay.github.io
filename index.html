@@ -293,8 +293,14 @@ footer .wrap{padding-top:28px;padding-bottom:28px;display:flex;justify-content:s
 .feat .media{box-shadow:inset 0 0 0 1px rgba(255,210,31,.12)}
 @media (prefers-reduced-motion:reduce){.media .play::after{animation:none}}
 /* ===== brands: 3D logo ring ===== */
-.ring3d{position:relative;height:460px;perspective:1400px;display:flex;align-items:center;justify-content:center;cursor:grab;touch-action:pan-y;user-select:none}
-.ring3d:active{cursor:grabbing}
+.ring3d{position:relative;height:380px;perspective:1400px;display:flex;align-items:center;justify-content:center;cursor:grab;touch-action:pan-y;user-select:none}
+.ring3d.dragging{cursor:grabbing}
+.ring3d.dragging .rlogo{transition:none}
+.rhintwrap{display:flex;justify-content:center;margin-top:4px}
+.rhint{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:99px;border:1px solid rgba(255,210,31,.35);background:rgba(10,10,8,.8);font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--a1);pointer-events:none;transition:opacity .5s;animation:hintx 2.4s ease-in-out infinite;z-index:300}
+@keyframes hintx{50%{transform:translateX(6px)}}
+.rhintwrap.used .rhint{opacity:0}
+.ring3d.empty~.rhintwrap{display:none}
 .ring3d.empty,.ring3d.empty+.tmnote{display:none}
 .assoc{align-self:flex-start;margin-top:6px;padding:7px 14px;border-radius:99px;border:1px solid rgba(255,210,31,.4);background:rgba(255,210,31,.08);font-size:14px;color:var(--soft)}
 .assoc b{color:var(--a1)}
@@ -302,14 +308,25 @@ footer .wrap{padding-top:28px;padding-bottom:28px;display:flex;justify-content:s
 .rfloor{position:absolute;left:50%;top:64%;width:min(980px,96%);aspect-ratio:3.4/1;transform:translate(-50%,-50%) rotateX(75deg);border-radius:50%;border:2px dashed rgba(255,210,31,.35);background:radial-gradient(ellipse,rgba(255,210,31,.14),transparent 65%);pointer-events:none}
 .rspin{position:relative;width:210px;height:130px;transform-style:preserve-3d;transform:rotateX(-10deg) rotateY(0deg)}
 .rlogo{position:absolute;inset:0;border-radius:18px;background:#f6f5ee;display:flex;align-items:center;justify-content:center;padding:16px;border:1px solid rgba(255,210,31,.35);box-shadow:0 20px 40px -18px rgba(0,0,0,.9),0 0 40px -14px rgba(255,210,31,.45);backface-visibility:visible;transition:box-shadow .3s}
-.rlogo img{max-width:100%;max-height:100%;object-fit:contain;pointer-events:none}
+.rlogo img{max-width:100%;max-height:100%;object-fit:contain;pointer-events:none;-webkit-user-drag:none}
 .rlogo:hover{box-shadow:0 0 0 2px var(--a1),0 0 50px -6px rgba(255,210,31,.7)}
-@media (max-width:640px){.ring3d{height:340px}.rspin{width:150px;height:96px}.rlogo{padding:10px;border-radius:14px}}
+@media (max-width:640px){.ring3d{height:270px;overflow:hidden;margin:0 -20px}.rspin{width:150px;height:96px}.rlogo{padding:10px;border-radius:14px}}
 .awards{gap:24px}
 .ahead{display:flex;flex-direction:column;gap:4px}
 .agrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
 .awards .aw{padding:20px;border-radius:16px;background:var(--card2);border:1px solid var(--line2);gap:6px}
 .ai-ic{width:36px;height:36px;border-radius:10px;background:rgba(255,210,31,.12);color:var(--a1);display:flex;align-items:center;justify-content:center;font-size:16px!important;margin-bottom:6px}
+/* ===== AI toolkit ===== */
+.aikit{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px}
+.aitool{padding:22px;border-radius:18px;display:flex;flex-direction:column;gap:12px;transition:border-color .25s}
+.aitool:hover{border-color:var(--a1)}
+.aiic{width:56px;height:56px;border-radius:16px;background:rgba(255,210,31,.10);border:1px solid rgba(255,210,31,.3);color:var(--a1);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.aiic img{width:100%;height:100%;object-fit:contain;padding:8px;background:#f6f5ee}
+.aitool b{font-family:Sora,sans-serif;font-size:17px}
+.aitool span{font-size:14px;color:var(--muted)}
+.aitool .use{margin-top:auto;font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--a1)}
+@media (max-width:980px){.aikit{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:640px){.aikit{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.aitool{padding:16px}.aitool:last-child:nth-child(odd){grid-column:span 2}}
 </style>
 </head>
 <body>
@@ -320,9 +337,10 @@ footer .wrap{padding-top:28px;padding-bottom:28px;display:flex;justify-content:s
     <a href="#top" class="logo">ajaya<span>.dev</span></a>
     <button class="menu" aria-label="Open menu" onclick="document.querySelector('.links').classList.toggle('open')"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
     <div class="links">
-      <a href="#build">What I build</a>
-      <a href="#projects">Projects</a>
       <a href="#brands">Brands</a>
+      <a href="#build">What I build</a>
+      <a href="#ai">AI</a>
+      <a href="#projects">Projects</a>
       <a href="#experience">Experience</a>
       <a href="#skills">Skills</a>
       <a href="#freelance">Freelance</a>
@@ -360,6 +378,21 @@ footer .wrap{padding-top:28px;padding-bottom:28px;display:flex;justify-content:s
   <div class="card stat"><b data-to="10" data-suf="K+">10K+</b><span>Loyalty QR scans handled</span></div>
   <div class="card stat"><b data-to="7" data-suf="+">7+</b><span>Plywood &amp; laminate brands</span></div>
 </div>
+
+<section id="brands" class="wrap">
+  <div class="head">
+    <span class="kick">// CRM · SFA · loyalty</span>
+    <h2 class="h2">Brands whose CRM I've contributed to<em>.</em></h2>
+    <p>CRM, SFA, loyalty and dealer platforms I've built and contributed to for plywood, laminate and building-material brands across India.</p>
+    <span class="assoc">Associated with <b>AbacusDesk IT Solutions Pvt. Ltd.</b></span>
+  </div>
+  <div class="ring3d" id="ring3d">
+    <div class="rfloor" aria-hidden="true"></div>
+    <div class="rspin" id="rspin"></div>
+  </div>
+  <div class="rhintwrap"><div class="rhint" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 8l-4 4 4 4M17 8l4 4-4 4M3 12h18"/></svg>Drag to spin</div></div>
+  <p class="tmnote">Work delivered as part of AbacusDesk IT Solutions Pvt. Ltd. All logos and trademarks belong to their respective owners and are shown only to indicate project involvement.</p>
+</section>
 
 <section id="build" class="wrap">
   <div class="head">
@@ -435,7 +468,16 @@ footer .wrap{padding-top:28px;padding-bottom:28px;display:flex;justify-content:s
   </div>
 </section>
 
-<div class="marquee" aria-hidden="true"><div><span>IDEAS ✦</span><span>CODE ✦</span><span>SOLUTIONS ✦</span><span>REACT · NEXT.JS · ANGULAR ✦</span><span>KOTLIN · SWIFT ✦</span><span>AI INTEGRATION ✦</span><span>IDEAS ✦</span><span>CODE ✦</span><span>SOLUTIONS ✦</span><span>REACT · NEXT.JS · ANGULAR ✦</span><span>KOTLIN · SWIFT ✦</span><span>AI INTEGRATION ✦</span></div></div>
+<section id="ai" class="wrap">
+  <div class="head">
+    <span class="kick">// daily AI toolkit</span>
+    <h2 class="h2">I build <em>with</em> AI, every day<em>.</em></h2>
+    <p>AI is part of how I work, not just what I ship: agentic coding, faster debugging, and LLM features wired into real business apps.</p>
+  </div>
+  <div class="aikit" id="aikit"></div>
+</section>
+
+<div class="marquee" aria-hidden="true"><div><span>IDEAS ✦</span><span>CODE ✦</span><span>SOLUTIONS ✦</span><span>REACT · NEXT.JS · ANGULAR ✦</span><span>KOTLIN · SWIFT ✦</span><span>AI INTEGRATION ✦</span><span>CLAUDE CODE · CHATGPT ✦</span><span>IDEAS ✦</span><span>CODE ✦</span><span>SOLUTIONS ✦</span><span>REACT · NEXT.JS · ANGULAR ✦</span><span>KOTLIN · SWIFT ✦</span><span>AI INTEGRATION ✦</span><span>CLAUDE CODE · CHATGPT ✦</span></div></div>
 
 <section id="projects" class="wrap">
   <div class="head">
@@ -565,19 +607,6 @@ footer .wrap{padding-top:28px;padding-bottom:28px;display:flex;justify-content:s
   </div>
 </section>
 
-<section id="brands" class="wrap">
-  <div class="head">
-    <span class="kick">// CRM · SFA · loyalty</span>
-    <h2 class="h2">Brands whose CRM I've contributed to<em>.</em></h2>
-    <p>CRM, SFA, loyalty and dealer platforms I've built and contributed to for plywood, laminate and building-material brands across India.</p>
-    <span class="assoc">Associated with <b>AbacusDesk IT Solutions Pvt. Ltd.</b></span>
-  </div>
-  <div class="ring3d" id="ring3d">
-    <div class="rfloor" aria-hidden="true"></div>
-    <div class="rspin" id="rspin"></div>
-  </div>
-  <p class="tmnote">Work delivered as part of AbacusDesk IT Solutions Pvt. Ltd. All logos and trademarks belong to their respective owners and are shown only to indicate project involvement.</p>
-</section>
 
 <section class="wrap">
   <div class="card box awards">
@@ -650,6 +679,16 @@ const BRAND_LOGOS = [
   "brands/brand5.png","brands/brand6.png","brands/brand7.png","brands/brand8.png",
   "brands/brand9.png","brands/brand10.png","brands/brand11.png","brands/brand12.png"
 ];
+
+/* AI TOOLKIT: logo chahiye to ai/ folder me file daalo (e.g. ai/claude-code.png).
+   File nahi hogi to icon dikhega. Naya tool add karna ho to list me ek line jodo. */
+const AI_TOOLS = [
+  { name:"Claude Code", desc:"Agentic coding in the terminal: refactors, features and fixes across whole repos.", use:"daily · coding",     icon:"term", logo:"ai/claude-code.png" },
+  { name:"ChatGPT",     desc:"Research, problem-solving, drafting specs and quick prototypes.",                  use:"daily · thinking",   icon:"chat", logo:"ai/chatgpt.png" },
+  { name:"Claude API",  desc:"LLM features inside apps: chatbots, summaries and smart reports.",                use:"in production",      icon:"api",  logo:"ai/claude-api.png" },
+  { name:"OpenAI API",  desc:"GPT-powered NL→SQL reporting and voice commands in Wigwam SFA.",                   use:"in production",      icon:"api",  logo:"ai/openai-api.png" },
+  { name:"n8n",         desc:"AI automations: Slack mentions turned into tasks, no manual work.",                use:"automation",         icon:"flow", logo:"ai/n8n.png" }
+];
 /* =============================================== */
 
 function driveEmbed(url){
@@ -663,6 +702,19 @@ document.querySelectorAll(".media[data-video]").forEach(function(el){
 const lb = document.getElementById("linkedinBtn");
 if (LINKEDIN_LINK) lb.href = LINKEDIN_LINK; else lb.style.display = "none";
 document.getElementById("yr").textContent = new Date().getFullYear();
+
+/* build AI toolkit */
+(function(){
+  var box=document.getElementById("aikit"); if(!box) return;
+  var I={term:'<path d="M4 17l6-5-6-5M12 19h8"/>',chat:'<path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/>',api:'<path d="M8 6l-5 6 5 6M16 6l5 6-5 6"/>',flow:'<circle cx="5" cy="6" r="2.5"/><circle cx="19" cy="6" r="2.5"/><circle cx="12" cy="18" r="2.5"/><path d="M7 7.5l4 8M17 7.5l-4 8"/>'};
+  AI_TOOLS.forEach(function(t){
+    var d=document.createElement("div"); d.className="card aitool";
+    d.innerHTML='<span class="aiic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'+(I[t.icon]||I.api)+'</svg></span><b></b><span></span><em class="use" style="font-style:normal"></em>';
+    d.querySelector("b").textContent=t.name; d.querySelector("b+span").textContent=t.desc; d.querySelector(".use").textContent=t.use;
+    if(t.logo){ var im=new Image(); im.alt=t.name+" logo"; im.onload=function(){ var ic=d.querySelector(".aiic"); ic.innerHTML=""; ic.appendChild(im); }; im.src=t.logo; }
+    box.appendChild(d);
+  });
+})();
 
 /* build 3D logo ring */
 (function(){
@@ -679,7 +731,7 @@ document.getElementById("yr").textContent = new Date().getFullYear();
   function build(list){
     if(!list.length){ wrap.classList.add("empty"); return; }
     var n=list.length, w=spin.offsetWidth;
-    var r=Math.max(w*1.25, Math.round((w+28)/2/Math.tan(Math.PI/Math.max(n,3))));
+    var r=Math.max(w*1.25, Math.round((innerWidth<640?w+12:w+28)/2/Math.tan(Math.PI/Math.max(n,3))));
     var tiles=[];
     list.forEach(function(src,i){
       var d=document.createElement("div"); d.className="rlogo"; tiles.push(d);
@@ -687,14 +739,32 @@ document.getElementById("yr").textContent = new Date().getFullYear();
       d.innerHTML='<img alt="Client brand logo" src="'+src+'">';
       spin.appendChild(d);
     });
-    var sc=Math.min(1, (wrap.offsetWidth*0.9)/(2*r+w)); spin.style.scale=sc;
-    var a=0, v=reduce?0:0.25, drag=false, lx=0, hover=false;
-    wrap.addEventListener("pointerenter",function(){hover=true});
-    wrap.addEventListener("pointerleave",function(){hover=false;drag=false});
-    wrap.addEventListener("pointerdown",function(e){drag=true;lx=e.clientX;});
-    addEventListener("pointerup",function(){drag=false});
-    addEventListener("pointermove",function(e){ if(!drag) return; a+=(e.clientX-lx)*0.4; lx=e.clientX; });
-    (function loop(){ if(!drag) a+= hover ? v*0.25 : v; spin.style.transform="rotateX(-10deg) rotateY("+a+"deg)";
+    var sc=Math.min(1, (wrap.offsetWidth*0.9)/(2*r+w)); spin.style.scale=innerWidth<640?Math.max(sc,.72):sc;
+    var a=0, base=reduce?0:0.25, vel=base, drag=false, lx=0, lt=0, hover=false, tiltX=-10, tTilt=-10, moved=0;
+    wrap.addEventListener("pointerenter",function(e){ if(e.pointerType==="mouse") hover=true; });
+    wrap.addEventListener("pointerleave",function(){ hover=false; });
+    wrap.addEventListener("pointerdown",function(e){
+      drag=true; lx=e.clientX; lt=performance.now(); vel=0; moved=0;
+      wrap.classList.add("dragging"); try{ wrap.setPointerCapture(e.pointerId); }catch(_){}
+    });
+    function end(){ if(!drag) return; drag=false; wrap.classList.remove("dragging"); tTilt=-10; if(moved>6){ var hw=wrap.parentNode.querySelector(".rhintwrap"); if(hw) hw.classList.add("used"); } }
+    wrap.addEventListener("pointerup",end); wrap.addEventListener("pointercancel",end); wrap.addEventListener("lostpointercapture",end);
+    wrap.addEventListener("pointermove",function(e){
+      if(!drag) return;
+      var now=performance.now(), dx=e.clientX-lx, dt=Math.max(now-lt,1);
+      a+=dx*0.45; moved+=Math.abs(dx);
+      vel=vel*0.6 + (dx*0.45/dt*16)*0.4;            /* momentum from flick speed */
+      var r=wrap.getBoundingClientRect(); tTilt=-10-((e.clientY-r.top)/r.height-.5)*16;
+      lx=e.clientX; lt=now;
+    });
+    (function loop(){
+      if(!drag){
+        var target = hover ? base*0.3 : base;
+        vel += (target-vel)*0.03;                    /* friction back to slow auto-spin */
+        a += vel;
+      }
+      tiltX += (tTilt-tiltX)*0.12;
+      spin.style.transform="rotateX("+tiltX.toFixed(2)+"deg) rotateY("+a.toFixed(2)+"deg)";
       tiles.forEach(function(t,i){ var c=Math.cos((i*360/n+a)*Math.PI/180); t.style.opacity=(.6+.4*(c+1)/2).toFixed(3); t.style.zIndex=Math.round(c*100)+100; t.firstChild.style.transform=c<0?"scaleX(-1)":""; });
       requestAnimationFrame(loop); })();
   }
@@ -773,7 +843,7 @@ document.querySelectorAll(".links a").forEach(function(a){ a.addEventListener("c
 /* ===== 3D tilt on cards + photo ===== */
 (function(){
   if (matchMedia("(hover:none),(pointer:coarse),(prefers-reduced-motion: reduce)").matches) return;
-  document.querySelectorAll(".proj,.feat,.skill,.svc,.job,.stat,.box").forEach(function(el){
+  document.querySelectorAll(".proj,.feat,.skill,.svc,.job,.stat,.box,.aitool").forEach(function(el){
     el.classList.add("tilt"); var gl=document.createElement("span"); gl.className="glare"; el.appendChild(gl);
     var max = el.classList.contains("feat") ? 4 : 9;
     el.addEventListener("pointermove",function(e){ var r=el.getBoundingClientRect(), x=(e.clientX-r.left)/r.width, y=(e.clientY-r.top)/r.height;
@@ -792,7 +862,7 @@ document.querySelectorAll(".links a").forEach(function(a){ a.addEventListener("c
 
 /* ===== scroll reveal ===== */
 (function(){
-  var els=document.querySelectorAll(".scene,.stat,.feat,.proj,.job,.edu,.skill,.box,.svc,.hire,.contact,.head");
+  var els=document.querySelectorAll(".scene,.stat,.feat,.proj,.job,.edu,.skill,.box,.svc,.hire,.contact,.head,.aitool");
   if (!("IntersectionObserver" in window)) return;
   els.forEach(function(el,i){ el.classList.add("reveal"); el.style.transitionDelay=((i%3)*90)+"ms"; });
   var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target);
