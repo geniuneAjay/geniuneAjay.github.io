@@ -310,7 +310,7 @@ footer .wrap{padding-top:28px;padding-bottom:28px;display:flex;justify-content:s
 .rlogo{position:absolute;inset:0;border-radius:18px;background:#f6f5ee;display:flex;align-items:center;justify-content:center;padding:16px;border:1px solid rgba(255,210,31,.35);box-shadow:0 20px 40px -18px rgba(0,0,0,.9),0 0 40px -14px rgba(255,210,31,.45);backface-visibility:visible;transition:box-shadow .3s}
 .rlogo img{max-width:100%;max-height:100%;object-fit:contain;pointer-events:none;-webkit-user-drag:none}
 .rlogo:hover{box-shadow:0 0 0 2px var(--a1),0 0 50px -6px rgba(255,210,31,.7)}
-@media (max-width:640px){.ring3d{height:270px;overflow:hidden;margin:0 -20px}.rspin{width:150px;height:96px}.rlogo{padding:10px;border-radius:14px}}
+@media (max-width:640px){.ring3d{height:260px;margin:-40px -20px 0;clip-path:inset(-400px 0 -400px 0)}.rspin{width:150px;height:96px}.rlogo{padding:10px;border-radius:14px}}
 .awards{gap:24px}
 .ahead{display:flex;flex-direction:column;gap:4px}
 .agrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
@@ -326,6 +326,8 @@ footer .wrap{padding-top:28px;padding-bottom:28px;display:flex;justify-content:s
 .aitool span{font-size:14px;color:var(--muted)}
 .aitool .use{margin-top:auto;font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--a1)}
 @media (max-width:980px){.aikit{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:980px){.agrid{grid-template-columns:1fr}}
+@media (max-width:640px){.awards .aw{padding:16px}.awards{padding:22px}}
 @media (max-width:640px){.aikit{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.aitool{padding:16px}.aitool:last-child:nth-child(odd){grid-column:span 2}}
 </style>
 </head>
